@@ -66,15 +66,15 @@ class Ui_Form(object):
 "}\n"
 "")
         icon = QIcon()
-        icon.addFile(u"../UI icon/import-file.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"UI icon/import-file.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_import.setIcon(icon)
         self.button_import.setIconSize(QSize(18, 18))
         self.cbox_mode = QComboBox(self.frame_top)
         icon1 = QIcon()
-        icon1.addFile(u"../UI icon/2d.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"../easy-to-segment/UI icon/2d.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.cbox_mode.addItem(icon1, "")
         icon2 = QIcon()
-        icon2.addFile(u"../UI icon/3d.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"../easy-to-segment/UI icon/3d.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.cbox_mode.addItem(icon2, "")
         self.cbox_mode.setObjectName(u"cbox_mode")
         self.cbox_mode.setGeometry(QRect(60, 10, 150, 30))
@@ -97,7 +97,7 @@ class Ui_Form(object):
 "width:16px; \n"
 "height: 16px;\n"
 "padding-right:10px;\n"
-"image: url(D:/Python Coding/UI icon/down-arrow.svg); \n"
+"image: url(D:/Python Coding/easy-to-segment/UI icon/down-arrow.svg); \n"
 "}\n"
 "\n"
 "QComboBox::drop-down {\n"
@@ -132,7 +132,7 @@ class Ui_Form(object):
 "color: rgb(255,255,255)\n"
 "}")
         icon3 = QIcon()
-        icon3.addFile(u"../UI icon/square-add.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"../easy-to-segment/UI icon/square-add.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_new_class.setIcon(icon3)
         self.button_new_class.setIconSize(QSize(18, 18))
         self.frame_top_divide3 = QFrame(self.frame_top)
@@ -162,7 +162,7 @@ class Ui_Form(object):
 "color: rgb(255,255,255)\n"
 "}")
         icon4 = QIcon()
-        icon4.addFile(u"../UI icon/generate-mask.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u"../easy-to-segment/UI icon/generate-mask.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_generate_mask.setIcon(icon4)
         self.button_generate_mask.setIconSize(QSize(18, 18))
         self.button_save = QPushButton(self.frame_top)
@@ -186,7 +186,7 @@ class Ui_Form(object):
 "color: rgb(255,255,255)\n"
 "}")
         icon5 = QIcon()
-        icon5.addFile(u"../UI icon/save.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u"../easy-to-segment/UI icon/save.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_save.setIcon(icon5)
         self.button_save.setIconSize(QSize(18, 18))
         self.frame_top_divide2 = QFrame(self.frame_top)
@@ -216,7 +216,7 @@ class Ui_Form(object):
 "color: rgb(255,255,255)\n"
 "}")
         icon6 = QIcon()
-        icon6.addFile(u"../UI icon/magic.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile(u"../easy-to-segment/UI icon/magic.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_auto_mask.setIcon(icon6)
         self.button_auto_mask.setIconSize(QSize(18, 18))
         self.frame_top_right = QFrame(self.frame_top)
@@ -244,7 +244,7 @@ class Ui_Form(object):
 "}\n"
 "")
         icon7 = QIcon()
-        icon7.addFile(u"../UI icon/minimize.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon7.addFile(u"../easy-to-segment/UI icon/minimize.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_minimize.setIcon(icon7)
         self.button_minimize.setIconSize(QSize(18, 18))
 
@@ -268,7 +268,7 @@ class Ui_Form(object):
 "}\n"
 "")
         icon8 = QIcon()
-        icon8.addFile(u"../UI icon/close.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon8.addFile(u"../easy-to-segment/UI icon/close.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_close.setIcon(icon8)
         self.button_close.setIconSize(QSize(18, 18))
 
@@ -298,8 +298,8 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.button_import.setText("")
-        self.cbox_mode.setItemText(0, QCoreApplication.translate("Form", u"2D Segement", None))
-        self.cbox_mode.setItemText(1, QCoreApplication.translate("Form", u"3D Segement", None))
+        self.cbox_mode.setItemText(0, QCoreApplication.translate("Form", u"2D Segment", None))
+        self.cbox_mode.setItemText(1, QCoreApplication.translate("Form", u"3D Segment", None))
 
         self.button_new_class.setText(QCoreApplication.translate("Form", u"New Class", None))
         self.button_generate_mask.setText(QCoreApplication.translate("Form", u"Generate Select Mask", None))

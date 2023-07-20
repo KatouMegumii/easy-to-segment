@@ -107,7 +107,7 @@ QPushButton:pressed{
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../UI icon/import-file.svg</normaloff>../UI icon/import-file.svg</iconset>
+       <normaloff>UI icon/import-file.svg</normaloff>UI icon/import-file.svg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -149,7 +149,7 @@ QComboBox::down-arrow {
 width:16px; 
 height: 16px;
 padding-right:10px;
-image: url(D:/Python Coding/UI icon/down-arrow.svg); 
+image: url(D:/Python Coding/easy-to-segment/UI icon/down-arrow.svg); 
 }
 
 QComboBox::drop-down {
@@ -165,20 +165,20 @@ QComboBox::drop-down {
      </property>
      <item>
       <property name="text">
-       <string>2D Segement</string>
+       <string>2D Segment</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../UI icon/2d.svg</normaloff>../UI icon/2d.svg</iconset>
+        <normaloff>../easy-to-segment/UI icon/2d.svg</normaloff>../easy-to-segment/UI icon/2d.svg</iconset>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>3D Segement</string>
+       <string>3D Segment</string>
       </property>
       <property name="icon">
        <iconset>
-        <normaloff>../UI icon/3d.svg</normaloff>../UI icon/3d.svg</iconset>
+        <normaloff>../easy-to-segment/UI icon/3d.svg</normaloff>../easy-to-segment/UI icon/3d.svg</iconset>
       </property>
      </item>
     </widget>
@@ -240,7 +240,7 @@ color: rgb(255,255,255)
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../UI icon/square-add.svg</normaloff>../UI icon/square-add.svg</iconset>
+       <normaloff>../easy-to-segment/UI icon/square-add.svg</normaloff>../easy-to-segment/UI icon/square-add.svg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -307,7 +307,7 @@ color: rgb(255,255,255)
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../UI icon/generate-mask.svg</normaloff>../UI icon/generate-mask.svg</iconset>
+       <normaloff>../easy-to-segment/UI icon/generate-mask.svg</normaloff>../easy-to-segment/UI icon/generate-mask.svg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -355,7 +355,7 @@ color: rgb(255,255,255)
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../UI icon/save.svg</normaloff>../UI icon/save.svg</iconset>
+       <normaloff>../easy-to-segment/UI icon/save.svg</normaloff>../easy-to-segment/UI icon/save.svg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -422,7 +422,7 @@ color: rgb(255,255,255)
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../UI icon/magic.svg</normaloff>../UI icon/magic.svg</iconset>
+       <normaloff>../easy-to-segment/UI icon/magic.svg</normaloff>../easy-to-segment/UI icon/magic.svg</iconset>
      </property>
      <property name="iconSize">
       <size>

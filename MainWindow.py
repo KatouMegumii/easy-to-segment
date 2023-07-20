@@ -30,28 +30,28 @@ class MainWindow(QMainWindow):
         self.ui.button_generate_mask.leaveEvent = self.button_generate_mask_leave
 
     def button_auto_mask_enter(self, event):
-        self.ui.button_auto_mask.setIcon(QIcon('../UI icon/magic-white.svg'))
+        self.ui.button_auto_mask.setIcon(QIcon('../easy-to-segment/UI icon/magic-white.svg'))
 
     def button_auto_mask_leave(self, event):
-        self.ui.button_auto_mask.setIcon(QIcon('../UI icon/magic.svg'))
+        self.ui.button_auto_mask.setIcon(QIcon('../easy-to-segment/UI icon/magic.svg'))
 
     def button_save_enter(self, event):
-        self.ui.button_save.setIcon(QIcon('../UI icon/save-white.svg'))
+        self.ui.button_save.setIcon(QIcon('../easy-to-segment/UI icon/save-white.svg'))
 
     def button_save_leave(self, event):
-        self.ui.button_save.setIcon(QIcon('../UI icon/save.svg'))
+        self.ui.button_save.setIcon(QIcon('../easy-to-segment/UI icon/save.svg'))
 
     def button_new_class_enter(self, event):
-        self.ui.button_new_class.setIcon(QIcon('../UI icon/square-add-white.svg'))
+        self.ui.button_new_class.setIcon(QIcon('../easy-to-segment/UI icon/square-add-white.svg'))
 
     def button_new_class_leave(self, event):
-        self.ui.button_new_class.setIcon(QIcon('../UI icon/square-add.svg'))
+        self.ui.button_new_class.setIcon(QIcon('../easy-to-segment/UI icon/square-add.svg'))
 
     def button_generate_mask_enter(self, event):
-        self.ui.button_generate_mask.setIcon(QIcon('../UI icon/generate-mask-white.svg'))
+        self.ui.button_generate_mask.setIcon(QIcon('../easy-to-segment/UI icon/generate-mask-white.svg'))
 
     def button_generate_mask_leave(self, event):
-        self.ui.button_generate_mask.setIcon(QIcon('../UI icon/generate-mask.svg'))
+        self.ui.button_generate_mask.setIcon(QIcon('../easy-to-segment/UI icon/generate-mask.svg'))
 
     # 重写窗口拖动
     def mousePressEvent(self, event):
