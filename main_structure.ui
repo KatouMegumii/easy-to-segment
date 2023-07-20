@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1064</width>
-    <height>717</height>
+    <width>1000</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
   <widget class="QFrame" name="frame_main">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>30</y>
+     <x>0</x>
+     <y>0</y>
      <width>1000</width>
      <height>600</height>
     </rect>
@@ -107,7 +107,7 @@ QPushButton:pressed{
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../UI icon/plus.svg</normaloff>../UI icon/plus.svg</iconset>
+       <normaloff>../UI icon/import-file.svg</normaloff>../UI icon/import-file.svg</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -116,41 +116,410 @@ QPushButton:pressed{
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="button_close">
+    <widget class="QComboBox" name="cbox_mode">
      <property name="geometry">
       <rect>
-       <x>960</x>
-       <y>13</y>
-       <width>24</width>
-       <height>24</height>
+       <x>60</x>
+       <y>10</y>
+       <width>150</width>
+       <height>30</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Historic</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::DefaultContextMenu</enum>
+     </property>
      <property name="styleSheet">
-      <string notr="true">QPushButton{
-border-radius: 0px;
+      <string notr="true">QComboBox {
+    border: 1px solid rgb(120,120,120); 
+    border-radius: 6px;
+    color: rgb(40,40,40);
+    padding-left:5px;
+    padding-bottom:1px;
 }
 
-QPushButton:hover{
-	background-color: rgba(80, 80, 80, 20);
+
+QComboBox::down-arrow { 
+width:16px; 
+height: 16px;
+padding-right:10px;
+image: url(D:/Python Coding/UI icon/down-arrow.svg); 
 }
-QPushButton:pressed{
-	background-color: rgba(20, 20, 20, 20);
+
+QComboBox::drop-down {
+    background: transparent;
 }
 </string>
      </property>
+     <property name="iconSize">
+      <size>
+       <width>18</width>
+       <height>18</height>
+      </size>
+     </property>
+     <item>
+      <property name="text">
+       <string>2D Segement</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../UI icon/2d.svg</normaloff>../UI icon/2d.svg</iconset>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>3D Segement</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../UI icon/3d.svg</normaloff>../UI icon/3d.svg</iconset>
+      </property>
+     </item>
+    </widget>
+    <widget class="QFrame" name="frame_top_divide1">
+     <property name="geometry">
+      <rect>
+       <x>225</x>
+       <y>7</y>
+       <width>2</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-right: 1px solid rgba(194, 194, 194, 200)</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_new_class">
+     <property name="geometry">
+      <rect>
+       <x>492</x>
+       <y>10</y>
+       <width>101</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Historic</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-radius: 6px;
+border: 1px solid rgb(120,120,120);
+color: rgb(40,40,40);
+padding-bottom:1px;
+}
+
+QPushButton:hover{
+border: 1px solid rgb(80,80,80);
+background-color: rgb(80, 80, 80);
+color: rgb(255,255,255)
+}
+QPushButton:pressed{
+border: 1px solid rgb(20,20,20);
+background-color: rgb(20, 20, 20);
+color: rgb(255,255,255)
+}</string>
+     </property>
      <property name="text">
-      <string/>
+      <string>New Class</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../UI icon/close_40.svg</normaloff>../UI icon/close_40.svg</iconset>
+       <normaloff>../UI icon/square-add.svg</normaloff>../UI icon/square-add.svg</iconset>
      </property>
      <property name="iconSize">
       <size>
-       <width>16</width>
-       <height>16</height>
+       <width>18</width>
+       <height>18</height>
       </size>
      </property>
+    </widget>
+    <widget class="QFrame" name="frame_top_divide3">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>7</y>
+       <width>2</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-right: 1px solid rgba(194, 194, 194, 200)</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_generate_mask">
+     <property name="geometry">
+      <rect>
+       <x>610</x>
+       <y>10</y>
+       <width>161</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Historic</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-radius: 6px;
+border: 1px solid rgb(120,120,120);
+color: rgb(40,40,40);
+padding-bottom:1px;
+}
+
+QPushButton:hover{
+border: 1px solid rgb(80,80,80);
+background-color: rgb(80, 80, 80);
+color: rgb(255,255,255)
+}
+QPushButton:pressed{
+border: 1px solid rgb(20,20,20);
+background-color: rgb(20, 20, 20);
+color: rgb(255,255,255)
+}</string>
+     </property>
+     <property name="text">
+      <string>Generate Select Mask</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../UI icon/generate-mask.svg</normaloff>../UI icon/generate-mask.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>18</width>
+       <height>18</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_save">
+     <property name="geometry">
+      <rect>
+       <x>244</x>
+       <y>10</y>
+       <width>72</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Historic</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-radius: 6px;
+border: 1px solid rgb(120,120,120);
+color: rgb(40,40,40);
+padding-bottom:1px;
+}
+
+QPushButton:hover{
+border: 1px solid rgb(80,80,80);
+background-color: rgb(80, 80, 80);
+color: rgb(255,255,255)
+}
+QPushButton:pressed{
+border: 1px solid rgb(20,20,20);
+background-color: rgb(20, 20, 20);
+color: rgb(255,255,255)
+}</string>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../UI icon/save.svg</normaloff>../UI icon/save.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>18</width>
+       <height>18</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_top_divide2">
+     <property name="geometry">
+      <rect>
+       <x>332</x>
+       <y>7</y>
+       <width>2</width>
+       <height>36</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-right: 1px solid rgba(194, 194, 194, 200)</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_auto_mask">
+     <property name="geometry">
+      <rect>
+       <x>352</x>
+       <y>10</y>
+       <width>101</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Segoe UI Historic</family>
+       <pointsize>10</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border-radius: 6px;
+border: 1px solid rgb(120,120,120);
+color: rgb(40,40,40);
+padding-bottom:1px;
+}
+
+QPushButton:hover{
+border: 1px solid rgb(80,80,80);
+background-color: rgb(80, 80, 80);
+color: rgb(255,255,255)
+}
+QPushButton:pressed{
+border: 1px solid rgb(20,20,20);
+background-color: rgb(20, 20, 20);
+color: rgb(255,255,255)
+}</string>
+     </property>
+     <property name="text">
+      <string>Auto Mask</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../UI icon/magic.svg</normaloff>../UI icon/magic.svg</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>18</width>
+       <height>18</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_top_right">
+     <property name="geometry">
+      <rect>
+       <x>919</x>
+       <y>0</y>
+       <width>71</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="button_minimize">
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 0px;
+min-width:30px;
+max-width:30px;
+min-height:30px;
+max-height:30px;
+}
+
+QPushButton:hover{
+	background-color: rgba(80, 80, 80, 50);
+}
+QPushButton:pressed{
+	background-color: rgba(20, 20, 20, 100);
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../UI icon/minimize.svg</normaloff>../UI icon/minimize.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>18</width>
+          <height>18</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="button_close">
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+border-radius: 0px;
+min-width:30px;
+max-width:30px;
+min-height:30px;
+max-height:30px;
+}
+
+QPushButton:hover{
+	background-color: rgba(80, 80, 80, 50);
+}
+QPushButton:pressed{
+	background-color: rgba(20, 20, 20, 100);
+}
+</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../UI icon/close.svg</normaloff>../UI icon/close.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>18</width>
+          <height>18</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_left">
