@@ -31,7 +31,7 @@ class Ui_Form(object):
 "border-top-right-radius:10px;\n"
 "border-bottom-left-radius:10px;\n"
 "border-bottom-right-radius:10px;\n"
-"background-color: rgb(255, 255, 255);")
+"background-color: rgb(240, 240, 240);")
         self.frame_main.setFrameShape(QFrame.StyledPanel)
         self.frame_main.setFrameShadow(QFrame.Raised)
         self.frame_top = QFrame(self.frame_main)
@@ -41,7 +41,7 @@ class Ui_Form(object):
 "border-top-right-radius:10px;\n"
 "border-bottom-left-radius:10px;\n"
 "border-bottom-right-radius:10px;\n"
-"background-color: rgb(222, 222, 222)")
+"background-color: rgb(200, 200, 200)")
         self.frame_top.setFrameShape(QFrame.StyledPanel)
         self.frame_top.setFrameShadow(QFrame.Raised)
         self.frame_top_border = QFrame(self.frame_top)
