@@ -70,7 +70,7 @@ background-color: rgb(200, 200, 200)</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-bottom: 0.5px solid rgba(194, 194, 194, 200)</string>
+      <string notr="true"/>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -111,8 +111,8 @@ QPushButton:pressed{
      </property>
      <property name="iconSize">
       <size>
-       <width>20</width>
-       <height>20</height>
+       <width>18</width>
+       <height>18</height>
       </size>
      </property>
     </widget>
@@ -185,14 +185,14 @@ QComboBox::drop-down {
     <widget class="QFrame" name="frame_top_divide1">
      <property name="geometry">
       <rect>
-       <x>225</x>
-       <y>7</y>
+       <x>230</x>
+       <y>13</y>
        <width>2</width>
-       <height>36</height>
+       <height>24</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-right: 1px solid rgba(194, 194, 194, 200)</string>
+      <string notr="true">border-right: 1px solid rgba(160, 160, 160,220)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -204,9 +204,9 @@ QComboBox::drop-down {
     <widget class="QPushButton" name="button_new_class">
      <property name="geometry">
       <rect>
-       <x>492</x>
+       <x>518</x>
        <y>10</y>
-       <width>101</width>
+       <width>100</width>
        <height>30</height>
       </rect>
      </property>
@@ -253,14 +253,14 @@ color: rgb(255,255,255)
     <widget class="QFrame" name="frame_top_divide3">
      <property name="geometry">
       <rect>
-       <x>470</x>
-       <y>7</y>
+       <x>492</x>
+       <y>13</y>
        <width>2</width>
-       <height>36</height>
+       <height>24</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-right: 1px solid rgba(194, 194, 194, 200)</string>
+      <string notr="true">border-right: 1px solid rgba(160, 160, 160, 220)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -272,9 +272,9 @@ color: rgb(255,255,255)
     <widget class="QPushButton" name="button_generate_mask">
      <property name="geometry">
       <rect>
-       <x>610</x>
+       <x>638</x>
        <y>10</y>
-       <width>161</width>
+       <width>160</width>
        <height>30</height>
       </rect>
      </property>
@@ -321,7 +321,7 @@ color: rgb(255,255,255)
     <widget class="QPushButton" name="button_save">
      <property name="geometry">
       <rect>
-       <x>244</x>
+       <x>252</x>
        <y>10</y>
        <width>72</width>
        <height>30</height>
@@ -370,14 +370,14 @@ color: rgb(255,255,255)
     <widget class="QFrame" name="frame_top_divide2">
      <property name="geometry">
       <rect>
-       <x>332</x>
-       <y>7</y>
+       <x>345</x>
+       <y>13</y>
        <width>2</width>
-       <height>36</height>
+       <height>24</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-right: 1px solid rgba(194, 194, 194, 200)</string>
+      <string notr="true">border-right: 1px solid rgba(160, 160, 160, 220)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -389,9 +389,9 @@ color: rgb(255,255,255)
     <widget class="QPushButton" name="button_auto_mask">
      <property name="geometry">
       <rect>
-       <x>352</x>
+       <x>370</x>
        <y>10</y>
-       <width>101</width>
+       <width>100</width>
        <height>30</height>
       </rect>
      </property>
@@ -553,7 +553,7 @@ border-bottom-right-radius:10px;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-right: 0.5px solid rgba(194, 194, 194, 200)</string>
+      <string notr="true">border-right: 0.5px solid rgba(180, 180, 180, 200)</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
