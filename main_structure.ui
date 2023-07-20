@@ -127,7 +127,7 @@ QPushButton:pressed{
      </property>
      <property name="font">
       <font>
-       <family>Segoe UI Historic</family>
+       <family>苹方 中等</family>
        <pointsize>10</pointsize>
        <bold>false</bold>
       </font>
@@ -212,7 +212,7 @@ QComboBox::drop-down {
      </property>
      <property name="font">
       <font>
-       <family>Segoe UI Historic</family>
+       <family>苹方 中等</family>
        <pointsize>10</pointsize>
        <bold>false</bold>
       </font>
@@ -222,7 +222,6 @@ QComboBox::drop-down {
 border-radius: 6px;
 border: 1px solid rgb(120,120,120);
 color: rgb(40,40,40);
-padding-bottom:1px;
 }
 
 QPushButton:hover{
@@ -274,13 +273,13 @@ color: rgb(255,255,255)
       <rect>
        <x>638</x>
        <y>10</y>
-       <width>160</width>
+       <width>170</width>
        <height>30</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>Segoe UI Historic</family>
+       <family>苹方 中等</family>
        <pointsize>10</pointsize>
        <bold>false</bold>
       </font>
@@ -290,7 +289,6 @@ color: rgb(255,255,255)
 border-radius: 6px;
 border: 1px solid rgb(120,120,120);
 color: rgb(40,40,40);
-padding-bottom:1px;
 }
 
 QPushButton:hover{
@@ -329,7 +327,7 @@ color: rgb(255,255,255)
      </property>
      <property name="font">
       <font>
-       <family>Segoe UI Historic</family>
+       <family>苹方 中等</family>
        <pointsize>10</pointsize>
        <bold>false</bold>
       </font>
@@ -339,7 +337,6 @@ color: rgb(255,255,255)
 border-radius: 6px;
 border: 1px solid rgb(120,120,120);
 color: rgb(40,40,40);
-padding-bottom:1px;
 }
 
 QPushButton:hover{
@@ -397,7 +394,7 @@ color: rgb(255,255,255)
      </property>
      <property name="font">
       <font>
-       <family>Segoe UI Historic</family>
+       <family>苹方 中等</family>
        <pointsize>10</pointsize>
        <bold>false</bold>
       </font>
@@ -407,7 +404,6 @@ color: rgb(255,255,255)
 border-radius: 6px;
 border: 1px solid rgb(120,120,120);
 color: rgb(40,40,40);
-padding-bottom:1px;
 }
 
 QPushButton:hover{

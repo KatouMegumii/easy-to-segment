@@ -79,7 +79,7 @@ class Ui_Form(object):
         self.cbox_mode.setObjectName(u"cbox_mode")
         self.cbox_mode.setGeometry(QRect(60, 10, 150, 30))
         font = QFont()
-        font.setFamilies([u"Segoe UI Historic"])
+        font.setFamilies([u"\u82f9\u65b9 \u4e2d\u7b49"])
         font.setPointSize(10)
         font.setBold(False)
         self.cbox_mode.setFont(font)
@@ -119,7 +119,6 @@ class Ui_Form(object):
 "border-radius: 6px;\n"
 "border: 1px solid rgb(120,120,120);\n"
 "color: rgb(40,40,40);\n"
-"padding-bottom:1px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -144,13 +143,12 @@ class Ui_Form(object):
         self.frame_top_divide3.setFrameShadow(QFrame.Raised)
         self.button_generate_mask = QPushButton(self.frame_top)
         self.button_generate_mask.setObjectName(u"button_generate_mask")
-        self.button_generate_mask.setGeometry(QRect(638, 10, 160, 30))
+        self.button_generate_mask.setGeometry(QRect(638, 10, 170, 30))
         self.button_generate_mask.setFont(font)
         self.button_generate_mask.setStyleSheet(u"QPushButton{\n"
 "border-radius: 6px;\n"
 "border: 1px solid rgb(120,120,120);\n"
 "color: rgb(40,40,40);\n"
-"padding-bottom:1px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -175,7 +173,6 @@ class Ui_Form(object):
 "border-radius: 6px;\n"
 "border: 1px solid rgb(120,120,120);\n"
 "color: rgb(40,40,40);\n"
-"padding-bottom:1px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
@@ -206,7 +203,6 @@ class Ui_Form(object):
 "border-radius: 6px;\n"
 "border: 1px solid rgb(120,120,120);\n"
 "color: rgb(40,40,40);\n"
-"padding-bottom:1px;\n"
 "}\n"
 "\n"
 "QPushButton:hover{\n"
