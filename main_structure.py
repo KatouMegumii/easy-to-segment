@@ -16,7 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
-    QPushButton, QSizePolicy, QWidget)
+    QLabel, QPushButton, QSizePolicy, QToolButton,
+    QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -34,27 +35,31 @@ class Ui_Form(object):
 "background-color: rgb(240, 240, 240);")
         self.frame_main.setFrameShape(QFrame.StyledPanel)
         self.frame_main.setFrameShadow(QFrame.Raised)
-        self.frame_top = QFrame(self.frame_main)
-        self.frame_top.setObjectName(u"frame_top")
-        self.frame_top.setGeometry(QRect(0, 0, 1000, 50))
-        self.frame_top.setStyleSheet(u"border-top-left-radius:10px;\n"
+        self.frame_top_bar = QFrame(self.frame_main)
+        self.frame_top_bar.setObjectName(u"frame_top_bar")
+        self.frame_top_bar.setGeometry(QRect(0, 0, 1000, 50))
+        self.frame_top_bar.setStyleSheet(u"border-top-left-radius:10px;\n"
 "border-top-right-radius:10px;\n"
 "border-bottom-left-radius:10px;\n"
 "border-bottom-right-radius:10px;\n"
 "background-color: rgb(200, 200, 200)")
-        self.frame_top.setFrameShape(QFrame.StyledPanel)
-        self.frame_top.setFrameShadow(QFrame.Raised)
-        self.frame_top_border = QFrame(self.frame_top)
+        self.frame_top_bar.setFrameShape(QFrame.StyledPanel)
+        self.frame_top_bar.setFrameShadow(QFrame.Raised)
+        self.frame_top_border = QFrame(self.frame_top_bar)
         self.frame_top_border.setObjectName(u"frame_top_border")
         self.frame_top_border.setGeometry(QRect(0, 40, 1000, 10))
         self.frame_top_border.setStyleSheet(u"")
         self.frame_top_border.setFrameShape(QFrame.StyledPanel)
         self.frame_top_border.setFrameShadow(QFrame.Raised)
-        self.button_import = QPushButton(self.frame_top)
+        self.button_import = QPushButton(self.frame_top_bar)
         self.button_import.setObjectName(u"button_import")
-        self.button_import.setGeometry(QRect(8, 6, 36, 36))
+        self.button_import.setGeometry(QRect(5, 5, 40, 40))
         self.button_import.setStyleSheet(u"QPushButton{\n"
-"border-radius: 18px;\n"
+"border-radius: 20px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
 "background-color: rgb(40, 40, 40)\n"
 "}\n"
 "\n"
@@ -68,18 +73,18 @@ class Ui_Form(object):
         icon = QIcon()
         icon.addFile(u"UI icon/import-file.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_import.setIcon(icon)
-        self.button_import.setIconSize(QSize(18, 18))
-        self.cbox_mode = QComboBox(self.frame_top)
+        self.button_import.setIconSize(QSize(24, 24))
+        self.cbox_mode = QComboBox(self.frame_top_bar)
         icon1 = QIcon()
-        icon1.addFile(u"../easy-to-segment/UI icon/2d.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"UI icon/2d.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.cbox_mode.addItem(icon1, "")
         icon2 = QIcon()
-        icon2.addFile(u"../easy-to-segment/UI icon/3d.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"UI icon/3d.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.cbox_mode.addItem(icon2, "")
         self.cbox_mode.setObjectName(u"cbox_mode")
-        self.cbox_mode.setGeometry(QRect(60, 10, 150, 30))
+        self.cbox_mode.setGeometry(QRect(55, 10, 150, 30))
         font = QFont()
-        font.setFamilies([u"\u82f9\u65b9 \u4e2d\u7b49"])
+        font.setFamilies([u"SF Pro Display"])
         font.setPointSize(10)
         font.setBold(False)
         self.cbox_mode.setFont(font)
@@ -105,121 +110,7 @@ class Ui_Form(object):
 "}\n"
 "")
         self.cbox_mode.setIconSize(QSize(18, 18))
-        self.frame_top_divide1 = QFrame(self.frame_top)
-        self.frame_top_divide1.setObjectName(u"frame_top_divide1")
-        self.frame_top_divide1.setGeometry(QRect(230, 13, 2, 24))
-        self.frame_top_divide1.setStyleSheet(u"border-right: 1px solid rgba(160, 160, 160,220)")
-        self.frame_top_divide1.setFrameShape(QFrame.StyledPanel)
-        self.frame_top_divide1.setFrameShadow(QFrame.Raised)
-        self.button_new_class = QPushButton(self.frame_top)
-        self.button_new_class.setObjectName(u"button_new_class")
-        self.button_new_class.setGeometry(QRect(518, 10, 100, 30))
-        self.button_new_class.setFont(font)
-        self.button_new_class.setStyleSheet(u"QPushButton{\n"
-"border-radius: 6px;\n"
-"border: 1px solid rgb(120,120,120);\n"
-"color: rgb(40,40,40);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"border: 1px solid rgba(40,40,40,220);\n"
-"background-color: rgba(40, 40, 40,220);\n"
-"color: rgb(255,255,255)\n"
-"}\n"
-"QPushButton:pressed{\n"
-"border: 1px solid rgba(0,0,0,240);\n"
-"background-color: rgba(0,0,0,240);\n"
-"color: rgb(255,255,255)\n"
-"}")
-        icon3 = QIcon()
-        icon3.addFile(u"../easy-to-segment/UI icon/square-add.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_new_class.setIcon(icon3)
-        self.button_new_class.setIconSize(QSize(18, 18))
-        self.frame_top_divide3 = QFrame(self.frame_top)
-        self.frame_top_divide3.setObjectName(u"frame_top_divide3")
-        self.frame_top_divide3.setGeometry(QRect(492, 13, 2, 24))
-        self.frame_top_divide3.setStyleSheet(u"border-right: 1px solid rgba(160, 160, 160, 220)")
-        self.frame_top_divide3.setFrameShape(QFrame.StyledPanel)
-        self.frame_top_divide3.setFrameShadow(QFrame.Raised)
-        self.button_generate_mask = QPushButton(self.frame_top)
-        self.button_generate_mask.setObjectName(u"button_generate_mask")
-        self.button_generate_mask.setGeometry(QRect(638, 10, 170, 30))
-        self.button_generate_mask.setFont(font)
-        self.button_generate_mask.setStyleSheet(u"QPushButton{\n"
-"border-radius: 6px;\n"
-"border: 1px solid rgb(120,120,120);\n"
-"color: rgb(40,40,40);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"border: 1px solid rgba(40,40,40,220);\n"
-"background-color: rgba(40, 40, 40,220);\n"
-"color: rgb(255,255,255)\n"
-"}\n"
-"QPushButton:pressed{\n"
-"border: 1px solid rgba(0,0,0,240);\n"
-"background-color: rgba(0,0,0,240);\n"
-"color: rgb(255,255,255)\n"
-"}")
-        icon4 = QIcon()
-        icon4.addFile(u"../easy-to-segment/UI icon/generate-mask.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_generate_mask.setIcon(icon4)
-        self.button_generate_mask.setIconSize(QSize(18, 18))
-        self.button_save = QPushButton(self.frame_top)
-        self.button_save.setObjectName(u"button_save")
-        self.button_save.setGeometry(QRect(252, 10, 72, 30))
-        self.button_save.setFont(font)
-        self.button_save.setStyleSheet(u"QPushButton{\n"
-"border-radius: 6px;\n"
-"border: 1px solid rgb(120,120,120);\n"
-"color: rgb(40,40,40);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"border: 1px solid rgba(40,40,40,220);\n"
-"background-color: rgba(40, 40, 40,220);\n"
-"color: rgb(255,255,255)\n"
-"}\n"
-"QPushButton:pressed{\n"
-"border: 1px solid rgba(0,0,0,240);\n"
-"background-color: rgba(0,0,0,240);\n"
-"color: rgb(255,255,255)\n"
-"}")
-        icon5 = QIcon()
-        icon5.addFile(u"../easy-to-segment/UI icon/save.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_save.setIcon(icon5)
-        self.button_save.setIconSize(QSize(18, 18))
-        self.frame_top_divide2 = QFrame(self.frame_top)
-        self.frame_top_divide2.setObjectName(u"frame_top_divide2")
-        self.frame_top_divide2.setGeometry(QRect(345, 13, 2, 24))
-        self.frame_top_divide2.setStyleSheet(u"border-right: 1px solid rgba(160, 160, 160, 220)")
-        self.frame_top_divide2.setFrameShape(QFrame.StyledPanel)
-        self.frame_top_divide2.setFrameShadow(QFrame.Raised)
-        self.button_auto_mask = QPushButton(self.frame_top)
-        self.button_auto_mask.setObjectName(u"button_auto_mask")
-        self.button_auto_mask.setGeometry(QRect(370, 10, 100, 30))
-        self.button_auto_mask.setFont(font)
-        self.button_auto_mask.setStyleSheet(u"QPushButton{\n"
-"border-radius: 6px;\n"
-"border: 1px solid rgb(120,120,120);\n"
-"color: rgb(40,40,40);\n"
-"}\n"
-"\n"
-"QPushButton:hover{\n"
-"border: 1px solid rgba(40,40,40,220);\n"
-"background-color: rgba(40, 40, 40,220);\n"
-"color: rgb(255,255,255)\n"
-"}\n"
-"QPushButton:pressed{\n"
-"border: 1px solid rgba(0,0,0,240);\n"
-"background-color: rgba(0,0,0,240);\n"
-"color: rgb(255,255,255)\n"
-"}")
-        icon6 = QIcon()
-        icon6.addFile(u"../easy-to-segment/UI icon/magic.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_auto_mask.setIcon(icon6)
-        self.button_auto_mask.setIconSize(QSize(18, 18))
-        self.frame_top_right = QFrame(self.frame_top)
+        self.frame_top_right = QFrame(self.frame_top_bar)
         self.frame_top_right.setObjectName(u"frame_top_right")
         self.frame_top_right.setGeometry(QRect(919, 0, 71, 50))
         self.frame_top_right.setFrameShape(QFrame.StyledPanel)
@@ -243,9 +134,9 @@ class Ui_Form(object):
 "	background-color: rgba(20, 20, 20, 100);\n"
 "}\n"
 "")
-        icon7 = QIcon()
-        icon7.addFile(u"../easy-to-segment/UI icon/minimize.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_minimize.setIcon(icon7)
+        icon3 = QIcon()
+        icon3.addFile(u"UI icon/minimize.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_minimize.setIcon(icon3)
         self.button_minimize.setIconSize(QSize(18, 18))
 
         self.horizontalLayout.addWidget(self.button_minimize)
@@ -267,28 +158,399 @@ class Ui_Form(object):
 "	background-color: rgba(20, 20, 20, 100);\n"
 "}\n"
 "")
-        icon8 = QIcon()
-        icon8.addFile(u"../easy-to-segment/UI icon/close.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_close.setIcon(icon8)
+        icon4 = QIcon()
+        icon4.addFile(u"UI icon/close.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_close.setIcon(icon4)
         self.button_close.setIconSize(QSize(18, 18))
 
         self.horizontalLayout.addWidget(self.button_close)
 
-        self.frame_left = QFrame(self.frame_main)
-        self.frame_left.setObjectName(u"frame_left")
-        self.frame_left.setGeometry(QRect(0, 50, 50, 550))
-        self.frame_left.setStyleSheet(u"border-top-left-radius:10px;\n"
+        self.frame_top_border.raise_()
+        self.button_import.raise_()
+        self.frame_top_right.raise_()
+        self.cbox_mode.raise_()
+        self.frame_function_bar = QFrame(self.frame_main)
+        self.frame_function_bar.setObjectName(u"frame_function_bar")
+        self.frame_function_bar.setGeometry(QRect(0, 50, 50, 550))
+        self.frame_function_bar.setStyleSheet(u"border-top-left-radius:10px;\n"
 "border-top-right-radius:10px;\n"
 "border-bottom-left-radius:10px;\n"
 "border-bottom-right-radius:10px;")
-        self.frame_left.setFrameShape(QFrame.StyledPanel)
-        self.frame_left.setFrameShadow(QFrame.Raised)
-        self.frame_left_border = QFrame(self.frame_left)
-        self.frame_left_border.setObjectName(u"frame_left_border")
-        self.frame_left_border.setGeometry(QRect(40, 0, 10, 550))
-        self.frame_left_border.setStyleSheet(u"border-right: 0.5px solid rgba(180, 180, 180, 200)")
-        self.frame_left_border.setFrameShape(QFrame.StyledPanel)
-        self.frame_left_border.setFrameShadow(QFrame.Raised)
+        self.frame_function_bar.setFrameShape(QFrame.StyledPanel)
+        self.frame_function_bar.setFrameShadow(QFrame.Raised)
+        self.frame_function_bar_border = QFrame(self.frame_function_bar)
+        self.frame_function_bar_border.setObjectName(u"frame_function_bar_border")
+        self.frame_function_bar_border.setGeometry(QRect(40, 0, 10, 550))
+        self.frame_function_bar_border.setStyleSheet(u"border-right: 0.5px solid rgba(180, 180, 180, 200)")
+        self.frame_function_bar_border.setFrameShape(QFrame.StyledPanel)
+        self.frame_function_bar_border.setFrameShadow(QFrame.Raised)
+        self.frame_operation = QFrame(self.frame_function_bar)
+        self.frame_operation.setObjectName(u"frame_operation")
+        self.frame_operation.setGeometry(QRect(0, 255, 50, 150))
+        self.frame_operation.setStyleSheet(u"background: transparent;")
+        self.frame_operation.setFrameShape(QFrame.StyledPanel)
+        self.frame_operation.setFrameShadow(QFrame.Raised)
+        self.button_undo = QPushButton(self.frame_operation)
+        self.button_undo.setObjectName(u"button_undo")
+        self.button_undo.setGeometry(QRect(5, 10, 40, 40))
+        self.button_undo.setStyleSheet(u"QPushButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(40,40,40,100);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/undo-white.svg);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"border: transparent;\n"
+"background-color: rgba(20,20,20,200);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/undo-white.svg);\n"
+"}")
+        icon5 = QIcon()
+        icon5.addFile(u"UI icon/undo.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_undo.setIcon(icon5)
+        self.button_undo.setIconSize(QSize(24, 24))
+        self.button_redo = QPushButton(self.frame_operation)
+        self.button_redo.setObjectName(u"button_redo")
+        self.button_redo.setGeometry(QRect(5, 55, 40, 40))
+        self.button_redo.setStyleSheet(u"QPushButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(40,40,40,100);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/redo-white.svg);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"border: transparent;\n"
+"background-color: rgba(20,20,20,200);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/redo-white.svg);\n"
+"}")
+        icon6 = QIcon()
+        icon6.addFile(u"UI icon/redo.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_redo.setIcon(icon6)
+        self.button_redo.setIconSize(QSize(24, 24))
+        self.button_reset = QPushButton(self.frame_operation)
+        self.button_reset.setObjectName(u"button_reset")
+        self.button_reset.setGeometry(QRect(5, 100, 40, 40))
+        self.button_reset.setStyleSheet(u"QPushButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(40,40,40,100);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/reset-white.svg);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"border: transparent;\n"
+"background-color: rgba(20,20,20,200);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/reset-white.svg);\n"
+"}")
+        icon7 = QIcon()
+        icon7.addFile(u"UI icon/reset.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_reset.setIcon(icon7)
+        self.button_reset.setIconSize(QSize(24, 24))
+        self.frame_zoom_border = QFrame(self.frame_operation)
+        self.frame_zoom_border.setObjectName(u"frame_zoom_border")
+        self.frame_zoom_border.setGeometry(QRect(10, 145, 30, 5))
+        self.frame_zoom_border.setStyleSheet(u"border-bottom: 1px solid rgba(180, 180, 180, 200)")
+        self.frame_zoom_border.setFrameShape(QFrame.StyledPanel)
+        self.frame_zoom_border.setFrameShadow(QFrame.Raised)
+        self.frame_zoom = QFrame(self.frame_function_bar)
+        self.frame_zoom.setObjectName(u"frame_zoom")
+        self.frame_zoom.setGeometry(QRect(0, 405, 50, 155))
+        self.frame_zoom.setStyleSheet(u"background: transparent;")
+        self.frame_zoom.setFrameShape(QFrame.StyledPanel)
+        self.frame_zoom.setFrameShadow(QFrame.Raised)
+        self.button_zoom_in = QPushButton(self.frame_zoom)
+        self.button_zoom_in.setObjectName(u"button_zoom_in")
+        self.button_zoom_in.setGeometry(QRect(5, 45, 40, 40))
+        self.button_zoom_in.setStyleSheet(u"QPushButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(40,40,40,100);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-in-white.svg);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"border: transparent;\n"
+"background-color: rgba(20,20,20,200);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-in-white.svg);\n"
+"}")
+        icon8 = QIcon()
+        icon8.addFile(u"UI icon/zoom-in.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_zoom_in.setIcon(icon8)
+        self.button_zoom_in.setIconSize(QSize(24, 24))
+        self.button_zoom_out = QPushButton(self.frame_zoom)
+        self.button_zoom_out.setObjectName(u"button_zoom_out")
+        self.button_zoom_out.setGeometry(QRect(5, 90, 40, 40))
+        self.button_zoom_out.setStyleSheet(u"QPushButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(40,40,40,100);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-out-white.svg);\n"
+"}\n"
+"QPushButton:pressed{\n"
+"border: transparent;\n"
+"background-color: rgba(20,20,20,200);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-out-white.svg);\n"
+"}")
+        icon9 = QIcon()
+        icon9.addFile(u"UI icon/zoom-out.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_zoom_out.setIcon(icon9)
+        self.button_zoom_out.setIconSize(QSize(24, 24))
+        self.label_photo_size = QLabel(self.frame_zoom)
+        self.label_photo_size.setObjectName(u"label_photo_size")
+        self.label_photo_size.setGeometry(QRect(5, 5, 40, 40))
+        font1 = QFont()
+        font1.setFamilies([u"SF Pro Display"])
+        font1.setPointSize(10)
+        font1.setBold(True)
+        self.label_photo_size.setFont(font1)
+        self.label_photo_size.setStyleSheet(u"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"color: rgb(40, 40, 40);")
+        self.label_photo_size.setScaledContents(True)
+        self.label_photo_size.setAlignment(Qt.AlignCenter)
+        self.frame_settings = QFrame(self.frame_function_bar)
+        self.frame_settings.setObjectName(u"frame_settings")
+        self.frame_settings.setGeometry(QRect(0, 0, 50, 105))
+        self.frame_settings.setStyleSheet(u"background: transparent;")
+        self.frame_settings.setFrameShape(QFrame.StyledPanel)
+        self.frame_settings.setFrameShadow(QFrame.Raised)
+        self.button_settings = QPushButton(self.frame_settings)
+        self.button_settings.setObjectName(u"button_settings")
+        self.button_settings.setGeometry(QRect(5, 10, 40, 40))
+        self.button_settings.setStyleSheet(u"QPushButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(40,40,40,150);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"border: transparent;\n"
+"background-color: rgba(20,20,20,200);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);\n"
+"}")
+        icon10 = QIcon()
+        icon10.addFile(u"UI icon/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_settings.setIcon(icon10)
+        self.button_settings.setIconSize(QSize(24, 24))
+        self.frame_settings_border = QFrame(self.frame_settings)
+        self.frame_settings_border.setObjectName(u"frame_settings_border")
+        self.frame_settings_border.setGeometry(QRect(10, 100, 30, 5))
+        self.frame_settings_border.setStyleSheet(u"border-bottom: 1px solid rgba(180, 180, 180, 200)")
+        self.frame_settings_border.setFrameShape(QFrame.StyledPanel)
+        self.frame_settings_border.setFrameShadow(QFrame.Raised)
+        self.button_save = QPushButton(self.frame_settings)
+        self.button_save.setObjectName(u"button_save")
+        self.button_save.setGeometry(QRect(5, 55, 40, 40))
+        self.button_save.setFont(font)
+        self.button_save.setStyleSheet(u"QPushButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgba(40,40,40,150);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/save-white.svg);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"border: transparent;\n"
+"background-color: rgba(20,20,20,200);\n"
+"icon: url(D:/Python Coding/easy-to-segment/UI icon/save-white.svg);\n"
+"}")
+        icon11 = QIcon()
+        icon11.addFile(u"UI icon/save.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_save.setIcon(icon11)
+        self.button_save.setIconSize(QSize(24, 24))
+        self.frame_mode = QFrame(self.frame_function_bar)
+        self.frame_mode.setObjectName(u"frame_mode")
+        self.frame_mode.setGeometry(QRect(0, 105, 50, 150))
+        self.frame_mode.setStyleSheet(u"background: transparent;")
+        self.frame_mode.setFrameShape(QFrame.StyledPanel)
+        self.frame_mode.setFrameShadow(QFrame.Raised)
+        self.button_box_mode = QToolButton(self.frame_mode)
+        self.button_box_mode.setObjectName(u"button_box_mode")
+        self.button_box_mode.setGeometry(QRect(5, 100, 40, 40))
+        self.button_box_mode.setStyleSheet(u"QToolButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QToolButton:hover{\n"
+"background-color: rgba(40,40,40,150);\n"
+"}\n"
+"\n"
+"QToolButton:pressed{\n"
+"border: none;\n"
+"background-color: rgba(20,20,20,200);\n"
+"padding-left: 0px;\n"
+"padding-right:0px;\n"
+"padding-bottom:0px;\n"
+"padding-top:0px;\n"
+"}\n"
+"\n"
+"QToolButton:checked{\n"
+"border: none;\n"
+"background-color: rgba(20,20,20,200);\n"
+"padding-left: 0px;\n"
+"padding-right:0px;\n"
+"padding-bottom:0px;\n"
+"padding-top:0px;\n"
+"}\n"
+"")
+        icon12 = QIcon()
+        icon12.addFile(u"UI icon/box.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_box_mode.setIcon(icon12)
+        self.button_box_mode.setIconSize(QSize(26, 26))
+        self.button_box_mode.setCheckable(True)
+        self.frame_mode_border = QFrame(self.frame_mode)
+        self.frame_mode_border.setObjectName(u"frame_mode_border")
+        self.frame_mode_border.setGeometry(QRect(10, 145, 30, 5))
+        self.frame_mode_border.setStyleSheet(u"border-bottom: 1px solid rgba(180, 180, 180, 200)")
+        self.frame_mode_border.setFrameShape(QFrame.StyledPanel)
+        self.frame_mode_border.setFrameShadow(QFrame.Raised)
+        self.button_view_mode = QToolButton(self.frame_mode)
+        self.button_view_mode.setObjectName(u"button_view_mode")
+        self.button_view_mode.setGeometry(QRect(5, 10, 40, 40))
+        self.button_view_mode.setStyleSheet(u"QToolButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QToolButton:hover{\n"
+"background-color: rgba(40,40,40,150);\n"
+"}\n"
+"\n"
+"QToolButton:pressed{\n"
+"border: none;\n"
+"background-color: rgba(20,20,20,200);\n"
+"padding-left: 0px;\n"
+"padding-right:0px;\n"
+"padding-bottom:0px;\n"
+"padding-top:0px;\n"
+"}\n"
+"\n"
+"QToolButton:checked{\n"
+"border: none;\n"
+"background-color: rgba(20,20,20,200);\n"
+"padding-left: 0px;\n"
+"padding-right:0px;\n"
+"padding-bottom:0px;\n"
+"padding-top:0px;\n"
+"}\n"
+"")
+        icon13 = QIcon()
+        icon13.addFile(u"UI icon/view.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_view_mode.setIcon(icon13)
+        self.button_view_mode.setIconSize(QSize(26, 26))
+        self.button_view_mode.setCheckable(True)
+        self.button_point_mode = QToolButton(self.frame_mode)
+        self.button_point_mode.setObjectName(u"button_point_mode")
+        self.button_point_mode.setGeometry(QRect(5, 55, 40, 40))
+        self.button_point_mode.setStyleSheet(u"QToolButton{\n"
+"border-radius: 5px;\n"
+"min-width:40px;\n"
+"max-width:40px;\n"
+"min-height:40px;\n"
+"max-height:40px;\n"
+"}\n"
+"\n"
+"QToolButton:hover{\n"
+"background-color: rgba(40,40,40,150);\n"
+"}\n"
+"\n"
+"QToolButton:pressed{\n"
+"border: none;\n"
+"background-color: rgba(20,20,20,200);\n"
+"padding-left: 0px;\n"
+"padding-right:0px;\n"
+"padding-bottom:0px;\n"
+"padding-top:0px;\n"
+"}\n"
+"\n"
+"QToolButton:checked{\n"
+"border: none;\n"
+"background-color: rgba(20,20,20,200);\n"
+"padding-left: 0px;\n"
+"padding-right:0px;\n"
+"padding-bottom:0px;\n"
+"padding-top:0px;\n"
+"}\n"
+"")
+        icon14 = QIcon()
+        icon14.addFile(u"UI icon/point.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_point_mode.setIcon(icon14)
+        self.button_point_mode.setIconSize(QSize(24, 24))
+        self.button_point_mode.setCheckable(True)
+        self.frame_mask_list = QFrame(self.frame_main)
+        self.frame_mask_list.setObjectName(u"frame_mask_list")
+        self.frame_mask_list.setGeometry(QRect(800, 50, 200, 550))
+        self.frame_mask_list.setFrameShape(QFrame.StyledPanel)
+        self.frame_mask_list.setFrameShadow(QFrame.Raised)
+        self.frame_mask_list_border = QFrame(self.frame_mask_list)
+        self.frame_mask_list_border.setObjectName(u"frame_mask_list_border")
+        self.frame_mask_list_border.setGeometry(QRect(0, 0, 10, 550))
+        self.frame_mask_list_border.setStyleSheet(u"border-left: 1px solid rgba(180, 180, 180, 200)")
+        self.frame_mask_list_border.setFrameShape(QFrame.StyledPanel)
+        self.frame_mask_list_border.setFrameShadow(QFrame.Raised)
+        self.frame_display = QFrame(self.frame_main)
+        self.frame_display.setObjectName(u"frame_display")
+        self.frame_display.setGeometry(QRect(50, 550, 750, 50))
+        self.frame_display.setFrameShape(QFrame.StyledPanel)
+        self.frame_display.setFrameShadow(QFrame.Raised)
+        self.frame_display_border = QFrame(self.frame_display)
+        self.frame_display_border.setObjectName(u"frame_display_border")
+        self.frame_display_border.setGeometry(QRect(0, 0, 750, 10))
+        self.frame_display_border.setStyleSheet(u"border-top: 1px solid rgba(180, 180, 180, 200)")
+        self.frame_display_border.setFrameShape(QFrame.StyledPanel)
+        self.frame_display_border.setFrameShadow(QFrame.Raised)
 
         self.retranslateUi(Form)
 
@@ -298,14 +560,21 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.button_import.setText("")
-        self.cbox_mode.setItemText(0, QCoreApplication.translate("Form", u"2D Segment", None))
-        self.cbox_mode.setItemText(1, QCoreApplication.translate("Form", u"3D Segment", None))
+        self.cbox_mode.setItemText(0, QCoreApplication.translate("Form", u"Segment 2D", None))
+        self.cbox_mode.setItemText(1, QCoreApplication.translate("Form", u"Segment 3D", None))
 
-        self.button_new_class.setText(QCoreApplication.translate("Form", u"New Class", None))
-        self.button_generate_mask.setText(QCoreApplication.translate("Form", u"Generate Select Mask", None))
-        self.button_save.setText(QCoreApplication.translate("Form", u"Save", None))
-        self.button_auto_mask.setText(QCoreApplication.translate("Form", u"Auto Mask", None))
         self.button_minimize.setText("")
         self.button_close.setText("")
+        self.button_undo.setText("")
+        self.button_redo.setText("")
+        self.button_reset.setText("")
+        self.button_zoom_in.setText("")
+        self.button_zoom_out.setText("")
+        self.label_photo_size.setText(QCoreApplication.translate("Form", u"80%", None))
+        self.button_settings.setText("")
+        self.button_save.setText("")
+        self.button_box_mode.setText(QCoreApplication.translate("Form", u"...", None))
+        self.button_view_mode.setText(QCoreApplication.translate("Form", u"...", None))
+        self.button_point_mode.setText(QCoreApplication.translate("Form", u"...", None))
     # retranslateUi
 
