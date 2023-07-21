@@ -357,13 +357,12 @@ max-height:40px;
 }
 
 QPushButton:hover{
-background-color: rgba(40,40,40,100);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/undo-white.svg);
+background-color: rgba(80,80,80,50);
 }
 
 QPushButton:pressed{
 border: transparent;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 icon: url(D:/Python Coding/easy-to-segment/UI icon/undo-white.svg);
 }</string>
       </property>
@@ -400,13 +399,12 @@ max-height:40px;
 }
 
 QPushButton:hover{
-background-color: rgba(40,40,40,100);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/redo-white.svg);
+background-color: rgba(80,80,80,50);
 }
 
 QPushButton:pressed{
 border: transparent;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 icon: url(D:/Python Coding/easy-to-segment/UI icon/redo-white.svg);
 }</string>
       </property>
@@ -443,13 +441,12 @@ max-height:40px;
 }
 
 QPushButton:hover{
-background-color: rgba(40,40,40,100);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/reset-white.svg);
+background-color: rgba(80,80,80,50);
 }
 
 QPushButton:pressed{
 border: transparent;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 icon: url(D:/Python Coding/easy-to-segment/UI icon/reset-white.svg);
 }</string>
       </property>
@@ -524,12 +521,11 @@ max-height:40px;
 }
 
 QPushButton:hover{
-background-color: rgba(40,40,40,100);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-in-white.svg);
+background-color: rgba(80,80,80,50);
 }
 QPushButton:pressed{
 border: transparent;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-in-white.svg);
 }</string>
       </property>
@@ -566,12 +562,11 @@ max-height:40px;
 }
 
 QPushButton:hover{
-background-color: rgba(40,40,40,100);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-out-white.svg);
+background-color: rgba(80,80,80,50);
 }
 QPushButton:pressed{
 border: transparent;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-out-white.svg);
 }</string>
       </property>
@@ -663,13 +658,12 @@ max-height:40px;
 }
 
 QPushButton:hover{
-background-color: rgba(40,40,40,150);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);
+background-color: rgba(80,80,80,50);
 }
 
 QPushButton:pressed{
 border: transparent;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);
 }
 </string>
@@ -733,13 +727,12 @@ max-height:40px;
 }
 
 QPushButton:hover{
-background-color: rgba(40,40,40,150);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/save-white.svg);
+background-color: rgba(80,80,80,50);
 }
 
 QPushButton:pressed{
 border: transparent;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 icon: url(D:/Python Coding/easy-to-segment/UI icon/save-white.svg);
 }</string>
       </property>
@@ -795,12 +788,12 @@ max-height:40px;
 }
 
 QToolButton:hover{
-background-color: rgba(40,40,40,150);
+background-color: rgba(80,80,80,50);
 }
 
 QToolButton:pressed{
 border: none;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 padding-left: 0px;
 padding-right:0px;
 padding-bottom:0px;
@@ -809,7 +802,7 @@ padding-top:0px;
 
 QToolButton:checked{
 border: none;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 padding-left: 0px;
 padding-right:0px;
 padding-bottom:0px;
@@ -875,12 +868,12 @@ max-height:40px;
 }
 
 QToolButton:hover{
-background-color: rgba(40,40,40,150);
+background-color: rgba(80,80,80,50);
 }
 
 QToolButton:pressed{
 border: none;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 padding-left: 0px;
 padding-right:0px;
 padding-bottom:0px;
@@ -889,7 +882,7 @@ padding-top:0px;
 
 QToolButton:checked{
 border: none;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 padding-left: 0px;
 padding-right:0px;
 padding-bottom:0px;
@@ -939,12 +932,12 @@ max-height:40px;
 }
 
 QToolButton:hover{
-background-color: rgba(40,40,40,150);
+background-color: rgba(80,80,80,50);
 }
 
 QToolButton:pressed{
 border: none;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 padding-left: 0px;
 padding-right:0px;
 padding-bottom:0px;
@@ -953,7 +946,7 @@ padding-top:0px;
 
 QToolButton:checked{
 border: none;
-background-color: rgba(20,20,20,200);
+background-color: rgba(40,40,40,220);
 padding-left: 0px;
 padding-right:0px;
 padding-bottom:0px;

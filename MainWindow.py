@@ -32,33 +32,38 @@ class MainWindow(QMainWindow):
         self.ui.button_close.clicked.connect(self.close)
         self.ui.button_minimize.clicked.connect(self.showMinimized)
 
-        self.ui.button_point_mode.enterEvent = lambda event: button_enter(self.ui.button_point_mode, '../easy-to-segment/UI icon/point-white.svg')
         self.ui.button_point_mode.leaveEvent = lambda event: button_leave(self.ui.button_point_mode, '../easy-to-segment/UI icon/point.svg', '../easy-to-segment/UI icon/point-white.svg')
 
-        self.ui.button_box_mode.enterEvent = lambda event: button_enter(self.ui.button_box_mode, '../easy-to-segment/UI icon/box-white.svg')
         self.ui.button_box_mode.leaveEvent = lambda event: button_leave(self.ui.button_box_mode, '../easy-to-segment/UI icon/box.svg', '../easy-to-segment/UI icon/box-white.svg')
 
-        self.ui.button_view_mode.enterEvent = lambda event: button_enter(self.ui.button_view_mode, '../easy-to-segment/UI icon/view-white.svg')
         self.ui.button_view_mode.leaveEvent = lambda event: button_leave(self.ui.button_view_mode, '../easy-to-segment/UI icon/view.svg', '../easy-to-segment/UI icon/view-white.svg')
 
         self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
 
-        self.ui.mode_button_group.buttonClicked.connect(self.group_button_check)
+        self.ui.mode_button_group.buttonClicked.connect(self.group_button_click)
+        self.ui.mode_button_group.buttonPressed.connect(self.group_button_press)
 
-    def group_button_check(self, button):
-        if button.isChecked():
-            if button == self.ui.button_point_mode:
-                button.setIcon(QIcon('../easy-to-segment/UI icon/point-white.svg'))
-                self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view.svg'))
-                self.ui.button_box_mode.setIcon(QIcon('../easy-to-segment/UI icon/box.svg'))
-            elif button == self.ui.button_box_mode:
-                button.setIcon(QIcon('../easy-to-segment/UI icon/box-white.svg'))
-                self.ui.button_point_mode.setIcon(QIcon('../easy-to-segment/UI icon/point.svg'))
-                self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view.svg'))
-            elif button == self.ui.button_view_mode:
-                button.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
-                self.ui.button_point_mode.setIcon(QIcon('../easy-to-segment/UI icon/point.svg'))
-                self.ui.button_box_mode.setIcon(QIcon('../easy-to-segment/UI icon/box.svg'))
+    def group_button_click(self, button):
+        if button == self.ui.button_point_mode:
+            button.setIcon(QIcon('../easy-to-segment/UI icon/point-white.svg'))
+            self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view.svg'))
+            self.ui.button_box_mode.setIcon(QIcon('../easy-to-segment/UI icon/box.svg'))
+        elif button == self.ui.button_box_mode:
+            button.setIcon(QIcon('../easy-to-segment/UI icon/box-white.svg'))
+            self.ui.button_point_mode.setIcon(QIcon('../easy-to-segment/UI icon/point.svg'))
+            self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view.svg'))
+        elif button == self.ui.button_view_mode:
+            button.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
+            self.ui.button_point_mode.setIcon(QIcon('../easy-to-segment/UI icon/point.svg'))
+            self.ui.button_box_mode.setIcon(QIcon('../easy-to-segment/UI icon/box.svg'))
+
+    def group_button_press(self, button):
+        if button == self.ui.button_point_mode:
+            button.setIcon(QIcon('../easy-to-segment/UI icon/point-white.svg'))
+        elif button == self.ui.button_box_mode:
+            button.setIcon(QIcon('../easy-to-segment/UI icon/box-white.svg'))
+        elif button == self.ui.button_view_mode:
+            button.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
