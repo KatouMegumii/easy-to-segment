@@ -28,6 +28,7 @@ class Ui_Form(object):
         self.frame_main = QFrame(Form)
         self.frame_main.setObjectName(u"frame_main")
         self.frame_main.setGeometry(QRect(0, 0, 1000, 600))
+        self.frame_main.setToolTipDuration(1)
         self.frame_main.setStyleSheet(u"border-top-left-radius:10px;\n"
 "border-top-right-radius:10px;\n"
 "border-bottom-left-radius:10px;\n"
@@ -82,15 +83,15 @@ class Ui_Form(object):
         icon2.addFile(u"UI icon/3d.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.cbox_mode.addItem(icon2, "")
         self.cbox_mode.setObjectName(u"cbox_mode")
-        self.cbox_mode.setGeometry(QRect(55, 10, 150, 30))
+        self.cbox_mode.setGeometry(QRect(55, 10, 85, 30))
         font = QFont()
         font.setFamilies([u"SF Pro Display"])
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(False)
         self.cbox_mode.setFont(font)
         self.cbox_mode.setContextMenuPolicy(Qt.DefaultContextMenu)
         self.cbox_mode.setStyleSheet(u"QComboBox {\n"
-"    border: 1px solid rgb(120,120,120); \n"
+"    border: 2px solid rgb(120,120,120); \n"
 "    border-radius: 6px;\n"
 "    color: rgb(40,40,40);\n"
 "    padding-left:5px;\n"
@@ -109,7 +110,7 @@ class Ui_Form(object):
 "    background: transparent;\n"
 "}\n"
 "")
-        self.cbox_mode.setIconSize(QSize(18, 18))
+        self.cbox_mode.setIconSize(QSize(20, 20))
         self.frame_top_right = QFrame(self.frame_top_bar)
         self.frame_top_right.setObjectName(u"frame_top_right")
         self.frame_top_right.setGeometry(QRect(919, 0, 71, 50))
@@ -349,6 +350,7 @@ class Ui_Form(object):
         self.button_settings = QPushButton(self.frame_settings)
         self.button_settings.setObjectName(u"button_settings")
         self.button_settings.setGeometry(QRect(5, 10, 40, 40))
+        self.button_settings.setToolTipDuration(0)
         self.button_settings.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
 "min-width:40px;\n"
@@ -366,7 +368,8 @@ class Ui_Form(object):
 "border: transparent;\n"
 "background-color: rgba(20,20,20,200);\n"
 "icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);\n"
-"}")
+"}\n"
+"")
         icon10 = QIcon()
         icon10.addFile(u"UI icon/settings.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.button_settings.setIcon(icon10)
@@ -380,7 +383,11 @@ class Ui_Form(object):
         self.button_save = QPushButton(self.frame_settings)
         self.button_save.setObjectName(u"button_save")
         self.button_save.setGeometry(QRect(5, 55, 40, 40))
-        self.button_save.setFont(font)
+        font2 = QFont()
+        font2.setFamilies([u"SF Pro Display"])
+        font2.setPointSize(10)
+        font2.setBold(False)
+        self.button_save.setFont(font2)
         self.button_save.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
 "min-width:40px;\n"
@@ -560,8 +567,8 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.button_import.setText("")
-        self.cbox_mode.setItemText(0, QCoreApplication.translate("Form", u"Segment 2D", None))
-        self.cbox_mode.setItemText(1, QCoreApplication.translate("Form", u"Segment 3D", None))
+        self.cbox_mode.setItemText(0, QCoreApplication.translate("Form", u"2D", None))
+        self.cbox_mode.setItemText(1, QCoreApplication.translate("Form", u"3D", None))
 
         self.button_minimize.setText("")
         self.button_close.setText("")

@@ -127,9 +127,9 @@ QPushButton:pressed{
      <property name="geometry">
       <rect>
        <x>55</x>
-       <y>5</y>
-       <width>90</width>
-       <height>40</height>
+       <y>10</y>
+       <width>85</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="font">
@@ -166,8 +166,8 @@ QComboBox::drop-down {
      </property>
      <property name="iconSize">
       <size>
-       <width>24</width>
-       <height>24</height>
+       <width>20</width>
+       <height>20</height>
       </size>
      </property>
      <item>
