@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
-    QLabel, QPushButton, QSizePolicy, QToolButton,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QButtonGroup, QComboBox, QFrame,
+    QHBoxLayout, QLabel, QPushButton, QSizePolicy,
+    QToolButton, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -417,6 +417,9 @@ class Ui_Form(object):
         self.frame_mode.setFrameShape(QFrame.StyledPanel)
         self.frame_mode.setFrameShadow(QFrame.Raised)
         self.button_box_mode = QToolButton(self.frame_mode)
+        self.mode_button_group = QButtonGroup(Form)
+        self.mode_button_group.setObjectName(u"mode_button_group")
+        self.mode_button_group.addButton(self.button_box_mode)
         self.button_box_mode.setObjectName(u"button_box_mode")
         self.button_box_mode.setGeometry(QRect(5, 100, 40, 40))
         self.button_box_mode.setStyleSheet(u"QToolButton{\n"
@@ -461,6 +464,7 @@ class Ui_Form(object):
         self.frame_mode_border.setFrameShape(QFrame.StyledPanel)
         self.frame_mode_border.setFrameShadow(QFrame.Raised)
         self.button_view_mode = QToolButton(self.frame_mode)
+        self.mode_button_group.addButton(self.button_view_mode)
         self.button_view_mode.setObjectName(u"button_view_mode")
         self.button_view_mode.setGeometry(QRect(5, 10, 40, 40))
         self.button_view_mode.setStyleSheet(u"QToolButton{\n"
@@ -498,7 +502,9 @@ class Ui_Form(object):
         self.button_view_mode.setIcon(icon13)
         self.button_view_mode.setIconSize(QSize(26, 26))
         self.button_view_mode.setCheckable(True)
+        self.button_view_mode.setChecked(True)
         self.button_point_mode = QToolButton(self.frame_mode)
+        self.mode_button_group.addButton(self.button_point_mode)
         self.button_point_mode.setObjectName(u"button_point_mode")
         self.button_point_mode.setGeometry(QRect(5, 55, 40, 40))
         self.button_point_mode.setStyleSheet(u"QToolButton{\n"
@@ -581,7 +587,7 @@ class Ui_Form(object):
         self.button_settings.setText("")
         self.button_save.setText("")
         self.button_box_mode.setText(QCoreApplication.translate("Form", u"...", None))
-        self.button_view_mode.setText(QCoreApplication.translate("Form", u"...", None))
+        self.button_view_mode.setText("")
         self.button_point_mode.setText(QCoreApplication.translate("Form", u"...", None))
     # retranslateUi
 

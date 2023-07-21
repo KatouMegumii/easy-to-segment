@@ -41,18 +41,9 @@ class MainWindow(QMainWindow):
         self.ui.button_view_mode.enterEvent = lambda event: button_enter(self.ui.button_view_mode, '../easy-to-segment/UI icon/view-white.svg')
         self.ui.button_view_mode.leaveEvent = lambda event: button_leave(self.ui.button_view_mode, '../easy-to-segment/UI icon/view.svg', '../easy-to-segment/UI icon/view-white.svg')
 
-        self.mode_button_group = QButtonGroup()
-
-        self.mode_button_group.addButton(self.ui.button_point_mode)
-        self.mode_button_group.addButton(self.ui.button_box_mode)
-        self.mode_button_group.addButton(self.ui.button_view_mode)
-
-        self.mode_button_group.setExclusive(True)
-
-        self.ui.button_view_mode.setChecked(True)
         self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
 
-        self.mode_button_group.buttonClicked.connect(self.group_button_check)
+        self.ui.mode_button_group.buttonClicked.connect(self.group_button_check)
 
     def group_button_check(self, button):
         if button.isChecked():

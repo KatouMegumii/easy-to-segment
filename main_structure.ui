@@ -833,6 +833,9 @@ padding-top:0px;
       <property name="checkable">
        <bool>true</bool>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">mode_button_group</string>
+      </attribute>
      </widget>
      <widget class="QFrame" name="frame_mode_border">
       <property name="geometry">
@@ -895,7 +898,7 @@ padding-top:0px;
 </string>
       </property>
       <property name="text">
-       <string>...</string>
+       <string/>
       </property>
       <property name="icon">
        <iconset>
@@ -910,6 +913,12 @@ padding-top:0px;
       <property name="checkable">
        <bool>true</bool>
       </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">mode_button_group</string>
+      </attribute>
      </widget>
      <widget class="QToolButton" name="button_point_mode">
       <property name="geometry">
@@ -968,6 +977,9 @@ padding-top:0px;
       <property name="checkable">
        <bool>true</bool>
       </property>
+      <attribute name="buttonGroup">
+       <string notr="true">mode_button_group</string>
+      </attribute>
      </widget>
     </widget>
    </widget>
@@ -1045,4 +1057,7 @@ padding-top:0px;
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="mode_button_group"/>
+ </buttongroups>
 </ui>
