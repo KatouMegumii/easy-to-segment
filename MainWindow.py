@@ -1,9 +1,22 @@
+import numpy as np
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon, QPainter, QPixmap
 from PySide6.QtWidgets import QApplication, QMainWindow, QGraphicsView, QGraphicsScene, QFileDialog
+from matplotlib import pyplot as plt
 
 from main_structure import Ui_Form
 from ImageViewer import ImageViewer
+from segment_anything import sam_model_registry, SamPredictor
+
+
+sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
+model_type = "vit_h"
+
+device = "cuda"
+
+sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
+sam.to(device=device)
+predictor = SamPredictor(sam)
 
 
 def button_enter(button, icon_path):
@@ -20,6 +33,8 @@ def button_leave(button, icon_path, icon_path_checked):
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+
+        self.scene_pos = None
 
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
@@ -71,16 +86,21 @@ class MainWindow(QMainWindow):
         if event.button() == Qt.LeftButton:
             self.draggable = True
             self.offset = event.pos()
+            view_pos = event.pos()
+            scene_pos = self.ui.image_view.mapToScene(view_pos)
+            self.scene_pos = np.array([scene_pos.x(), scene_pos.y()])
 
     def mouseMoveEvent(self, event):
         if self.draggable and event.buttons() == Qt.LeftButton:
-            # 计算鼠标的偏移量
             new_pos = event.globalPos() - self.offset
             self.move(new_pos)
 
     def mouseReleaseEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.draggable = False
+
+
+test = MainWindow()
 
 
 if __name__ == '__main__':

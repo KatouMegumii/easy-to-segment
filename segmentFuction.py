@@ -1,11 +1,11 @@
-import numpy as np
-import sam as sam
-import torch
-import matplotlib.pyplot as plt
-import cv2
 import sys
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+
 sys.path.append("..")
 from segment_anything import sam_model_registry, SamPredictor
+from MainWindow import MainWindow
 
 
 
@@ -53,7 +53,8 @@ predictor = SamPredictor(sam)
 
 predictor.set_image(image)
 
-input_point = np.array([[575, 750]])
+input_point = MainWindow.mousePressEvent()
+
 input_label = np.array([1])
 
 masks, _, _ = predictor.predict(

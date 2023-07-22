@@ -1,6 +1,18 @@
+import cv2
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QPixmap
-from PySide6.QtWidgets import QGraphicsView, QGraphicsScene, QGraphicsPixmapItem, QFileDialog
+from PySide6.QtGui import QImage, QPixmap
+from PySide6.QtWidgets import QGraphicsView, QGraphicsScene, QFileDialog
+from segment_anything import sam_model_registry, SamPredictor
+
+
+sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
+model_type = "vit_h"
+
+device = "cuda"
+
+sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
+sam.to(device=device)
+predictor = SamPredictor(sam)
 
 
 class ImageViewer(QGraphicsView):
@@ -19,10 +31,17 @@ class ImageViewer(QGraphicsView):
         file_dialog.setFileMode(QFileDialog.ExistingFile)
         if file_dialog.exec_():
             image_path = file_dialog.selectedFiles()[0]
-        self.scene.clear()
-        self.pixmap = QPixmap(image_path)
-        self.pixmap_item = QGraphicsPixmapItem(self.pixmap)
+
+        image = cv2.imread(image_path)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        predictor.set_image(image)
+        q_image = QImage(image.data, image.shape[1], image.shape[0], QImage.Format_RGB888)
+        self.pixmap = QPixmap.fromImage(q_image)
+        self.pixmap_item = self.scene.addPixmap(self.pixmap)
         self.scene.addItem(self.pixmap_item)
+        self.setSceneRect(0, 0, self.pixmap.width(), self.pixmap.height())
+        self.fitInView(self.sceneRect(), Qt.KeepAspectRatio)
+
 
     def widget(self):
         self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
