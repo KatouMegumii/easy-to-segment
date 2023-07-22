@@ -1,8 +1,9 @@
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon
-from PySide6.QtWidgets import QApplication, QMainWindow, QButtonGroup
+from PySide6.QtGui import QIcon, QPainter, QPixmap
+from PySide6.QtWidgets import QApplication, QMainWindow, QGraphicsView, QGraphicsScene, QFileDialog
 
 from main_structure import Ui_Form
+from ImageViewer import ImageViewer
 
 
 def button_enter(button, icon_path):
@@ -20,22 +21,23 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.offset = None
-        self.draggable = None
-
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
 
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
+        self.image_viewer = ImageViewer()
+        self.image_viewer.widget()
+        self.ui.image_view.setScene(self.image_viewer.scene)
+
+        self.ui.button_import.clicked.connect(self.image_viewer.import_image)
+
         self.ui.button_close.clicked.connect(self.close)
         self.ui.button_minimize.clicked.connect(self.showMinimized)
 
         self.ui.button_point_mode.leaveEvent = lambda event: button_leave(self.ui.button_point_mode, '../easy-to-segment/UI icon/point.svg', '../easy-to-segment/UI icon/point-white.svg')
-
         self.ui.button_box_mode.leaveEvent = lambda event: button_leave(self.ui.button_box_mode, '../easy-to-segment/UI icon/box.svg', '../easy-to-segment/UI icon/box-white.svg')
-
         self.ui.button_view_mode.leaveEvent = lambda event: button_leave(self.ui.button_view_mode, '../easy-to-segment/UI icon/view.svg', '../easy-to-segment/UI icon/view-white.svg')
 
         self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))

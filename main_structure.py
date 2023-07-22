@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QButtonGroup, QComboBox, QFrame,
-    QHBoxLayout, QLabel, QPushButton, QSizePolicy,
-    QToolButton, QWidget)
+    QGraphicsView, QHBoxLayout, QLabel, QPushButton,
+    QSizePolicy, QToolButton, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -557,6 +557,14 @@ class Ui_Form(object):
         self.frame_display_border.setStyleSheet(u"border-top: 1px solid rgba(180, 180, 180, 200)")
         self.frame_display_border.setFrameShape(QFrame.StyledPanel)
         self.frame_display_border.setFrameShadow(QFrame.Raised)
+        self.image_view = QGraphicsView(self.frame_main)
+        self.image_view.setObjectName(u"image_view")
+        self.image_view.setGeometry(QRect(50, 50, 751, 501))
+        self.image_view.raise_()
+        self.frame_top_bar.raise_()
+        self.frame_function_bar.raise_()
+        self.frame_mask_list.raise_()
+        self.frame_display.raise_()
 
         self.retranslateUi(Form)
 

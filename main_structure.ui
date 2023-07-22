@@ -1046,6 +1046,21 @@ padding-top:0px;
      </property>
     </widget>
    </widget>
+   <widget class="QGraphicsView" name="image_view">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>751</width>
+      <height>501</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>image_view</zorder>
+   <zorder>frame_top_bar</zorder>
+   <zorder>frame_function_bar</zorder>
+   <zorder>frame_mask_list</zorder>
+   <zorder>frame_display</zorder>
   </widget>
  </widget>
  <resources/>
