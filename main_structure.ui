@@ -1051,9 +1051,12 @@ padding-top:0px;
      <rect>
       <x>50</x>
       <y>50</y>
-      <width>751</width>
-      <height>501</height>
+      <width>750</width>
+      <height>500</height>
      </rect>
+    </property>
+    <property name="dragMode">
+     <enum>QGraphicsView::ScrollHandDrag</enum>
     </property>
    </widget>
    <zorder>image_view</zorder>
