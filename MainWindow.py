@@ -4,7 +4,7 @@ from PySide6.QtGui import QIcon, QImage, QPixmap
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView
 from segment_anything import sam_model_registry, SamPredictor
 
-from main_structure import Ui_Form
+from Resources.main_structure import Ui_Form
 
 sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
 model_type = "vit_h"
