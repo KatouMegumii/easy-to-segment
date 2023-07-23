@@ -115,7 +115,7 @@ class MainWindow(QMainWindow):
             self.ui.image_viewer.setTransformationAnchor(QGraphicsView.AnchorViewCenter)
 
     def wheelEvent(self, event: QWheelEvent):
-        delta = event.angleDelta().y()/120
+        delta = event.angleDelta().y()
         if self.ui.button_view_mode.isChecked():
             if delta > 0:
                 self.zoom_in()
