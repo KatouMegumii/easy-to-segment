@@ -55,7 +55,7 @@ background-color: rgb(240, 240, 240);</string>
 border-top-right-radius:10px;
 border-bottom-left-radius:10px;
 border-bottom-right-radius:10px;
-background-color: rgb(200, 200, 200)</string>
+background-color: rgb(160, 160, 160)</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -324,7 +324,7 @@ border-bottom-right-radius:10px;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>255</y>
+       <y>400</y>
        <width>50</width>
        <height>150</height>
       </rect>
@@ -464,159 +464,6 @@ icon: url(D:/Python Coding/easy-to-segment/UI icon/reset-white.svg);
        </size>
       </property>
      </widget>
-     <widget class="QFrame" name="frame_zoom_border">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>145</y>
-        <width>30</width>
-        <height>5</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-bottom: 1px solid rgba(180, 180, 180, 200)</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QFrame" name="frame_zoom">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>405</y>
-       <width>50</width>
-       <height>155</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: transparent;</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="button_zoom_in">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>45</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-border-radius: 5px;
-min-width:40px;
-max-width:40px;
-min-height:40px;
-max-height:40px;
-}
-
-QPushButton:hover{
-background-color: rgba(80,80,80,50);
-}
-QPushButton:pressed{
-border: transparent;
-background-color: rgba(40,40,40,220);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-in-white.svg);
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>UI icon/zoom-in.svg</normaloff>UI icon/zoom-in.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>24</width>
-        <height>24</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_zoom_out">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>90</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-border-radius: 5px;
-min-width:40px;
-max-width:40px;
-min-height:40px;
-max-height:40px;
-}
-
-QPushButton:hover{
-background-color: rgba(80,80,80,50);
-}
-QPushButton:pressed{
-border: transparent;
-background-color: rgba(40,40,40,220);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/zoom-out-white.svg);
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>UI icon/zoom-out.svg</normaloff>UI icon/zoom-out.svg</iconset>
-      </property>
-      <property name="iconSize">
-       <size>
-        <width>24</width>
-        <height>24</height>
-       </size>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_photo_size">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>5</y>
-        <width>40</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>SF Pro Display</family>
-        <pointsize>10</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">min-width:40px;
-max-width:40px;
-min-height:40px;
-max-height:40px;
-color: rgb(40, 40, 40);</string>
-      </property>
-      <property name="text">
-       <string>80%</string>
-      </property>
-      <property name="scaledContents">
-       <bool>true</bool>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
     </widget>
     <widget class="QFrame" name="frame_settings">
      <property name="geometry">
@@ -624,7 +471,7 @@ color: rgb(40, 40, 40);</string>
        <x>0</x>
        <y>0</y>
        <width>50</width>
-       <height>105</height>
+       <height>100</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -640,7 +487,7 @@ color: rgb(40, 40, 40);</string>
       <property name="geometry">
        <rect>
         <x>5</x>
-        <y>10</y>
+        <y>5</y>
         <width>40</width>
         <height>40</height>
        </rect>
@@ -686,7 +533,7 @@ icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>100</y>
+        <y>95</y>
         <width>30</width>
         <height>5</height>
        </rect>
@@ -705,7 +552,7 @@ icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);
       <property name="geometry">
        <rect>
         <x>5</x>
-        <y>55</y>
+        <y>50</y>
         <width>40</width>
         <height>40</height>
        </rect>
@@ -755,7 +602,7 @@ icon: url(D:/Python Coding/easy-to-segment/UI icon/save-white.svg);
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>105</y>
+       <y>100</y>
        <width>50</width>
        <height>150</height>
       </rect>
@@ -829,25 +676,6 @@ padding-top:0px;
       <attribute name="buttonGroup">
        <string notr="true">mode_button_group</string>
       </attribute>
-     </widget>
-     <widget class="QFrame" name="frame_mode_border">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>145</y>
-        <width>30</width>
-        <height>5</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-bottom: 1px solid rgba(180, 180, 180, 200)</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
      </widget>
      <widget class="QToolButton" name="button_view_mode">
       <property name="geometry">
@@ -974,6 +802,207 @@ padding-top:0px;
        <string notr="true">mode_button_group</string>
       </attribute>
      </widget>
+     <widget class="QFrame" name="frame_mode_border">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>145</y>
+        <width>30</width>
+        <height>5</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-bottom: 1px solid rgba(180, 180, 180, 200)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_settings_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>250</y>
+       <width>50</width>
+       <height>150</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: transparent;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="button_add_group">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>10</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>0</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-radius: 5px;
+min-width:40px;
+max-width:40px;
+min-height:40px;
+max-height:40px;
+}
+
+QPushButton:hover{
+background-color: rgba(80,80,80,50);
+}
+
+QPushButton:pressed{
+border: transparent;
+background-color: rgba(40,40,40,220);
+icon: url(D:/Python Coding/easy-to-segment/UI icon/square-add-white.svg);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>UI icon/square-add.svg</normaloff>UI icon/square-add.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_settings_border_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>145</y>
+        <width>30</width>
+        <height>5</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-bottom: 1px solid rgba(180, 180, 180, 200)</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_generate_mask">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>55</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>SF Pro Display</family>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-radius: 5px;
+min-width:40px;
+max-width:40px;
+min-height:40px;
+max-height:40px;
+}
+
+QPushButton:hover{
+background-color: rgba(80,80,80,50);
+}
+
+QPushButton:pressed{
+border: transparent;
+background-color: rgba(40,40,40,220);
+icon: url(D:/Python Coding/easy-to-segment/UI icon/generate-mask-white.svg);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>UI icon/generate-mask.svg</normaloff>UI icon/generate-mask.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_auto_mask">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>100</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>SF Pro Display</family>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border-radius: 5px;
+min-width:40px;
+max-width:40px;
+min-height:40px;
+max-height:40px;
+}
+
+QPushButton:hover{
+background-color: rgba(80,80,80,50);
+}
+
+QPushButton:pressed{
+border: transparent;
+background-color: rgba(40,40,40,220);
+icon: url(D:/Python Coding/easy-to-segment/UI icon/magic-white.svg);
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>UI icon/magic.svg</normaloff>UI icon/magic.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_mask_list">
@@ -1046,7 +1075,7 @@ padding-top:0px;
      </property>
     </widget>
    </widget>
-   <widget class="QGraphicsView" name="image_view">
+   <widget class="QGraphicsView" name="image_viewer">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -1055,11 +1084,27 @@ padding-top:0px;
       <height>500</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:0px;
+background-color: rgb(220, 220, 220)</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
     <property name="dragMode">
      <enum>QGraphicsView::ScrollHandDrag</enum>
     </property>
+    <property name="transformationAnchor">
+     <enum>QGraphicsView::AnchorUnderMouse</enum>
+    </property>
+    <property name="resizeAnchor">
+     <enum>QGraphicsView::AnchorViewCenter</enum>
+    </property>
    </widget>
-   <zorder>image_view</zorder>
+   <zorder>image_viewer</zorder>
    <zorder>frame_top_bar</zorder>
    <zorder>frame_function_bar</zorder>
    <zorder>frame_mask_list</zorder>
