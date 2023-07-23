@@ -579,7 +579,6 @@ class Ui_Form(object):
 "background-color: rgb(220, 220, 220)")
         self.image_viewer.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.image_viewer.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.image_viewer.setDragMode(QGraphicsView.ScrollHandDrag)
         self.image_viewer.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
         self.image_viewer.setResizeAnchor(QGraphicsView.AnchorViewCenter)
         self.image_viewer.raise_()

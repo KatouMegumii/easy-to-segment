@@ -1094,9 +1094,6 @@ background-color: rgb(220, 220, 220)</string>
     <property name="horizontalScrollBarPolicy">
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
-    <property name="dragMode">
-     <enum>QGraphicsView::ScrollHandDrag</enum>
-    </property>
     <property name="transformationAnchor">
      <enum>QGraphicsView::AnchorUnderMouse</enum>
     </property>
