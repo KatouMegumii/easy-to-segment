@@ -262,9 +262,6 @@ if __name__ == '__main__':
         input_point = window.ui.image_viewer.point_pos
         input_label = np.array([1])
         segment(input_point, input_label)
-        print("input_point: ", input_point)
-        print("raw_input_point: ", window.ui.image_viewer.point_pos)
-        print("Clicked")
 
     window.ui.button_generate_mask.clicked.connect(check)
 
