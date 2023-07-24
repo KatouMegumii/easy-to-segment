@@ -5,15 +5,40 @@ import numpy as np
 from PySide6.QtCore import Qt, QRectF
 from PySide6.QtGui import QIcon, QImage, QPixmap, QWheelEvent
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, QGraphicsPixmapItem
+from matplotlib import pyplot as plt
 from segment_anything import sam_model_registry, SamPredictor
 
 from Resources.main_structure import Ui_Form
+
+
+def show_mask(mask, ax, random_color=False):
+    if random_color:
+        color = np.concatenate([np.random.random(3), np.array([0.6])], axis=0)
+    else:
+        color = np.array([30 / 255, 144 / 255, 255 / 255, 0.6])
+    h, w = mask.shape[-2:]
+    mask_image = mask.reshape(h, w, 1) * color.reshape(1, 1, -1)
+    ax.imshow(mask_image)
+
+
+def show_points(coords, labels, ax, marker_size=375):
+    pos_points = coords[labels == 1]
+    neg_points = coords[labels == 0]
+    ax.scatter(pos_points[:, 0], pos_points[:, 1], color='green', marker='.', s=marker_size)
+    ax.scatter(neg_points[:, 0], neg_points[:, 1], color='red', marker='.', s=marker_size)
+
+
+def show_box(box, ax):
+    x0, y0 = box[0], box[1]
+    w, h = box[2] - box[0], box[3] - box[1]
+    ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor='green', facecolor=(0, 0, 0, 0), lw=2))
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
+        self.image_path = None
         self.offset = None
         self.draggable = None
         self.zoom_in_times = 0
@@ -72,9 +97,9 @@ class MainWindow(QMainWindow):
         file_dialog = QFileDialog(self)
         file_dialog.setWindowTitle("Select Image File")
         file_dialog.setNameFilter("Image Files (*.png *.jpg *.bmp)")
-        if file_dialog.exec_():
-            image_path = file_dialog.selectedFiles()[0]
-            return image_path
+        if file_dialog.exec():
+            self.image_path = file_dialog.selectedFiles()[0]
+            return self.image_path
 
     def load_image_viewer(self):
         self.ui.image_viewer.set_image(self.import_image())
@@ -109,8 +134,8 @@ class ImageViewer(QGraphicsView):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
 
+        self.point_pos = None
         self.scene_pos = None
-        self.q_image = None
         self.pixmap = None
         self.pixmap_item = None
 
@@ -118,19 +143,12 @@ class ImageViewer(QGraphicsView):
         self.is_wheel_enable = False
 
         self.is_point_pos_enable = False
-        self.point_pos = None
 
         self.scene = QGraphicsScene()
 
     def set_image(self, image_path):
         self.resetTransform()
-
-        image = cv2.imread(image_path)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        predictor.set_image(image)
-
-        self.q_image = QImage(image.data, image.shape[1], image.shape[0], QImage.Format_RGB888)
-        self.pixmap = QPixmap.fromImage(self.q_image)
+        self.pixmap = QPixmap(image_path)
         self.pixmap_item = QGraphicsPixmapItem(self.pixmap)
 
     def set_scene(self):
@@ -199,9 +217,11 @@ class ImageViewer(QGraphicsView):
                 view_pos = event.pos()
                 self.scene_pos = self.mapToScene(view_pos)
                 if self.is_point_pos_valid():
-                    self.point_pos = np.array([self.scene_pos.x(), self.scene_pos.y()])
+                    self.point_pos = np.array([[self.scene_pos.x(), self.scene_pos.y()]])
+                    print(self.point_pos)
                 else:
                     self.point_pos = None
+                    print("Invalid Point")
 
 
 if __name__ == '__main__':
@@ -220,7 +240,33 @@ if __name__ == '__main__':
     window = MainWindow()
     window.show()
 
-    input_point = window.ui.image_viewer.point_pos
+    def segment(input_point, input_label):
+        if window.image_path is not None and input_point is not None:
+            image = cv2.imread(window.image_path)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            predictor.set_image(image)
+
+            masks, _, _ = predictor.predict(
+                point_coords=input_point,
+                point_labels=input_label,
+                multimask_output=False,
+            )
+
+            plt.imshow(image)
+            show_mask(masks, plt.gca())
+            show_points(input_point, input_label, plt.gca())
+            plt.axis('off')
+            plt.show()
+
+    def check():
+        input_point = window.ui.image_viewer.point_pos
+        input_label = np.array([1])
+        segment(input_point, input_label)
+        print("input_point: ", input_point)
+        print("raw_input_point: ", window.ui.image_viewer.point_pos)
+        print("Clicked")
+
+    window.ui.button_generate_mask.clicked.connect(check)
 
     app.exec()
 

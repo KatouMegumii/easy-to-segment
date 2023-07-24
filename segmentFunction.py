@@ -8,7 +8,6 @@ from segment_anything import sam_model_registry, SamPredictor
 from MainWindow import MainWindow
 
 
-
 def show_mask(mask, ax, random_color=False):
     if random_color:
         color = np.concatenate([np.random.random(3), np.array([0.6])], axis=0)
