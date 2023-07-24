@@ -1088,9 +1088,7 @@ border-top: 1px solid rgba(180, 180, 180, 200);
    <zorder>frame_top_bar</zorder>
   </widget>
  </widget>
- <resources>
-  <include location="UI icon/icon.qrc"/>
- </resources>
+ <resources/>
  <connections/>
  <buttongroups>
   <buttongroup name="mode_button_group"/>

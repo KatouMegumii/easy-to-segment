@@ -53,7 +53,7 @@ predictor = SamPredictor(sam)
 
 predictor.set_image(image)
 
-input_point = MainWindow.mousePressEvent()
+input_point = MainWindow.ui.image_viewer.get_points()
 
 input_label = np.array([1])
 

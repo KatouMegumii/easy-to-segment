@@ -156,7 +156,7 @@ class Ui_Form(object):
         self.button_close.setIconSize(QSize(18, 18))
         self.icon = QLabel(self.frame_top_bar)
         self.icon.setObjectName(u"icon")
-        self.icon.setGeometry(QRect(11, 6, 28, 28))
+        self.icon.setGeometry(QRect(12, 6, 28, 28))
         self.icon.setStyleSheet(u"image: url(D:/Python Coding/easy-to-segment/UI icon/logo.png);\n"
 "boarder-radius:4px;\n"
 "background:transparent;")
@@ -187,7 +187,7 @@ class Ui_Form(object):
         self.frame_settings.setFrameShadow(QFrame.Raised)
         self.button_settings = QPushButton(self.frame_settings)
         self.button_settings.setObjectName(u"button_settings")
-        self.button_settings.setGeometry(QRect(8, 94, 36, 36))
+        self.button_settings.setGeometry(QRect(7, 94, 36, 36))
         self.button_settings.setToolTipDuration(0)
         self.button_settings.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
@@ -213,7 +213,7 @@ class Ui_Form(object):
         self.button_settings.setIconSize(QSize(24, 24))
         self.button_save = QPushButton(self.frame_settings)
         self.button_save.setObjectName(u"button_save")
-        self.button_save.setGeometry(QRect(8, 52, 36, 36))
+        self.button_save.setGeometry(QRect(7, 52, 36, 36))
         self.button_save.setFont(font)
         self.button_save.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
@@ -238,7 +238,7 @@ class Ui_Form(object):
         self.button_save.setIconSize(QSize(26, 26))
         self.button_import = QPushButton(self.frame_settings)
         self.button_import.setObjectName(u"button_import")
-        self.button_import.setGeometry(QRect(8, 10, 36, 36))
+        self.button_import.setGeometry(QRect(7, 10, 36, 36))
         self.button_import.setToolTipDuration(0)
         self.button_import.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
@@ -280,7 +280,7 @@ class Ui_Form(object):
         self.mode_button_group.setObjectName(u"mode_button_group")
         self.mode_button_group.addButton(self.button_box_mode)
         self.button_box_mode.setObjectName(u"button_box_mode")
-        self.button_box_mode.setGeometry(QRect(8, 94, 36, 36))
+        self.button_box_mode.setGeometry(QRect(7, 94, 36, 36))
         self.button_box_mode.setStyleSheet(u"QToolButton{\n"
 "border-radius: 5px;\n"
 "min-width:36px;\n"
@@ -320,7 +320,7 @@ class Ui_Form(object):
         self.button_view_mode = QToolButton(self.frame_mode)
         self.mode_button_group.addButton(self.button_view_mode)
         self.button_view_mode.setObjectName(u"button_view_mode")
-        self.button_view_mode.setGeometry(QRect(8, 10, 36, 36))
+        self.button_view_mode.setGeometry(QRect(7, 10, 36, 36))
         self.button_view_mode.setStyleSheet(u"QToolButton{\n"
 "border-radius: 5px;\n"
 "min-width:36px;\n"
@@ -360,7 +360,7 @@ class Ui_Form(object):
         self.button_point_mode = QToolButton(self.frame_mode)
         self.mode_button_group.addButton(self.button_point_mode)
         self.button_point_mode.setObjectName(u"button_point_mode")
-        self.button_point_mode.setGeometry(QRect(8, 52, 36, 36))
+        self.button_point_mode.setGeometry(QRect(7, 52, 36, 36))
         self.button_point_mode.setStyleSheet(u"QToolButton{\n"
 "border-radius: 5px;\n"
 "min-width:36px;\n"
@@ -412,7 +412,7 @@ class Ui_Form(object):
         self.frame_function.setFrameShadow(QFrame.Raised)
         self.button_add_group = QPushButton(self.frame_function)
         self.button_add_group.setObjectName(u"button_add_group")
-        self.button_add_group.setGeometry(QRect(8, 10, 36, 36))
+        self.button_add_group.setGeometry(QRect(7, 10, 36, 36))
         self.button_add_group.setToolTipDuration(0)
         self.button_add_group.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
@@ -438,7 +438,7 @@ class Ui_Form(object):
         self.button_add_group.setIconSize(QSize(24, 24))
         self.button_generate_mask = QPushButton(self.frame_function)
         self.button_generate_mask.setObjectName(u"button_generate_mask")
-        self.button_generate_mask.setGeometry(QRect(8, 52, 36, 36))
+        self.button_generate_mask.setGeometry(QRect(7, 52, 36, 36))
         self.button_generate_mask.setFont(font)
         self.button_generate_mask.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
@@ -463,7 +463,7 @@ class Ui_Form(object):
         self.button_generate_mask.setIconSize(QSize(24, 24))
         self.button_auto_mask = QPushButton(self.frame_function)
         self.button_auto_mask.setObjectName(u"button_auto_mask")
-        self.button_auto_mask.setGeometry(QRect(8, 94, 36, 36))
+        self.button_auto_mask.setGeometry(QRect(7, 94, 36, 36))
         self.button_auto_mask.setFont(font)
         self.button_auto_mask.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
@@ -501,7 +501,7 @@ class Ui_Form(object):
         self.frame_operation.setFrameShadow(QFrame.Raised)
         self.button_undo = QPushButton(self.frame_operation)
         self.button_undo.setObjectName(u"button_undo")
-        self.button_undo.setGeometry(QRect(8, 10, 36, 36))
+        self.button_undo.setGeometry(QRect(7, 10, 36, 36))
         self.button_undo.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
 "min-width:36px;\n"
@@ -525,7 +525,7 @@ class Ui_Form(object):
         self.button_undo.setIconSize(QSize(24, 24))
         self.button_redo = QPushButton(self.frame_operation)
         self.button_redo.setObjectName(u"button_redo")
-        self.button_redo.setGeometry(QRect(8, 52, 36, 36))
+        self.button_redo.setGeometry(QRect(7, 52, 36, 36))
         self.button_redo.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
 "min-width:36px;\n"
@@ -549,7 +549,7 @@ class Ui_Form(object):
         self.button_redo.setIconSize(QSize(24, 24))
         self.button_reset = QPushButton(self.frame_operation)
         self.button_reset.setObjectName(u"button_reset")
-        self.button_reset.setGeometry(QRect(8, 94, 36, 36))
+        self.button_reset.setGeometry(QRect(7, 94, 36, 36))
         self.button_reset.setStyleSheet(u"QPushButton{\n"
 "border-radius: 5px;\n"
 "min-width:36px;\n"

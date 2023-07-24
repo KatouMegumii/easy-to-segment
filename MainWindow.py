@@ -1,32 +1,19 @@
-from PySide6.QtCore import Qt, QRectF
-from PySide6.QtGui import QIcon, QImage, QPixmap, QWheelEvent
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, QGraphicsPixmapItem
+import ctypes
 
 import cv2
 import numpy as np
+from PySide6.QtCore import Qt, QRectF
+from PySide6.QtGui import QIcon, QImage, QPixmap, QWheelEvent
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, QGraphicsPixmapItem
 from segment_anything import sam_model_registry, SamPredictor
 
 from Resources.main_structure import Ui_Form
-
-import ctypes
-
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("easy-to-segment")
-
-sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
-model_type = "vit_h"
-
-device = "cuda"
-
-sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
-sam.to(device=device)
-predictor = SamPredictor(sam)
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.image_path = None
         self.offset = None
         self.draggable = None
         self.zoom_in_times = 0
@@ -86,8 +73,8 @@ class MainWindow(QMainWindow):
         file_dialog.setWindowTitle("Select Image File")
         file_dialog.setNameFilter("Image Files (*.png *.jpg *.bmp)")
         if file_dialog.exec_():
-            self.image_path = file_dialog.selectedFiles()[0]
-            return self.image_path
+            image_path = file_dialog.selectedFiles()[0]
+            return image_path
 
     def load_image_viewer(self):
         self.ui.image_viewer.set_image(self.import_image())
@@ -213,16 +200,32 @@ class ImageViewer(QGraphicsView):
                 self.scene_pos = self.mapToScene(view_pos)
                 if self.is_point_pos_valid():
                     self.point_pos = np.array([self.scene_pos.x(), self.scene_pos.y()])
-                    print(self.point_pos)
                 else:
                     self.point_pos = None
-                    print("Invalid Pos")
 
 
 if __name__ == '__main__':
+    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("easy-to-segment")
+
+    sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
+    model_type = "vit_h"
+
+    device = "cuda"
+
+    sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
+    sam.to(device=device)
+    predictor = SamPredictor(sam)
+
     app = QApplication([])
     window = MainWindow()
     window.show()
+
+    input_point = window.ui.image_viewer.point_pos
+
     app.exec()
+
+
+
+
 
 
