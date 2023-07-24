@@ -35,7 +35,7 @@ class MainWindow(QMainWindow):
         self.ui.image_viewer = ImageViewer(self.ui.frame_main)
 
         self.ui.image_viewer.setGeometry(50, 50, 750, 500)
-        self.ui.image_viewer.setStyleSheet("border-radius: 0px; background-color: rgba(200,200,200,200);")
+        self.ui.image_viewer.setStyleSheet("border-radius: 0px;")
 
         self.ui.button_import.clicked.connect(self.load_image_viewer)
 

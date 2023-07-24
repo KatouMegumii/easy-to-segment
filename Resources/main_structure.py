@@ -43,7 +43,7 @@ class Ui_Form(object):
 "border-top-right-radius:10px;\n"
 "border-bottom-left-radius:10px;\n"
 "border-bottom-right-radius:10px;\n"
-"background-color: rgb(160, 160, 160)")
+"background-color: rgba(200, 200, 200, 200)")
         self.frame_top_bar.setFrameShape(QFrame.StyledPanel)
         self.frame_top_bar.setFrameShadow(QFrame.Raised)
         self.frame_top_border = QFrame(self.frame_top_bar)
