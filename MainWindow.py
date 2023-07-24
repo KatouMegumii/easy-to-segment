@@ -218,10 +218,8 @@ class ImageViewer(QGraphicsView):
                 self.scene_pos = self.mapToScene(view_pos)
                 if self.is_point_pos_valid():
                     self.point_pos = np.array([[self.scene_pos.x(), self.scene_pos.y()]])
-                    print(self.point_pos)
                 else:
                     self.point_pos = None
-                    print("Invalid Point")
 
 
 if __name__ == '__main__':
