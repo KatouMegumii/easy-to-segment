@@ -116,13 +116,16 @@ class ImageViewer(QGraphicsView):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
 
+        self.scene_pos = None
         self.q_image = None
         self.pixmap = None
         self.pixmap_item = None
 
         self.zoom_in_times = 0
         self.is_wheel_enable = False
+
         self.is_point_pos_enable = False
+        self.point_pos = None
 
         self.scene = QGraphicsScene()
 
@@ -162,6 +165,16 @@ class ImageViewer(QGraphicsView):
         else:
             self.is_point_pos_enable = True
 
+    def is_point_pos_valid(self):
+        image_height, image_width = self.pixmap_item.pixmap().height(), self.pixmap_item.pixmap().width()
+
+        if self.scene_pos.x() < 0 or self.scene_pos.y() < 0 or self.scene_pos.x() > image_width or self.scene_pos.y() > image_height:
+            is_valid = False
+        else:
+            is_valid = True
+
+        return is_valid
+
     def zoom_in(self):
         self.zoom_in_times += 1
         self.scale(1.1, 1.1)
@@ -191,9 +204,11 @@ class ImageViewer(QGraphicsView):
         if self.is_point_pos_enable:
             if event.button() == Qt.LeftButton:
                 view_pos = event.pos()
-                scene_pos = self.mapToScene(view_pos)
-                point_pos = np.array([scene_pos.x(), scene_pos.y()])
-                print(point_pos)
+                self.scene_pos = self.mapToScene(view_pos)
+                if self.is_point_pos_valid():
+                    self.point_pos = np.array([self.scene_pos.x(), self.scene_pos.y()])
+                else:
+                    self.point_pos = None
 
 
 if __name__ == '__main__':
@@ -201,3 +216,5 @@ if __name__ == '__main__':
     window = MainWindow()
     window.show()
     app.exec()
+
+
