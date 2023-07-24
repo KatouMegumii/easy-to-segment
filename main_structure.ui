@@ -1075,37 +1075,6 @@ icon: url(D:/Python Coding/easy-to-segment/UI icon/magic-white.svg);
      </property>
     </widget>
    </widget>
-   <widget class="QGraphicsView" name="image_viewer">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>50</y>
-      <width>750</width>
-      <height>500</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius:0px;
-background-color: rgb(220, 220, 220)</string>
-    </property>
-    <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="transformationAnchor">
-     <enum>QGraphicsView::AnchorUnderMouse</enum>
-    </property>
-    <property name="resizeAnchor">
-     <enum>QGraphicsView::AnchorViewCenter</enum>
-    </property>
-   </widget>
-   <zorder>image_viewer</zorder>
-   <zorder>frame_top_bar</zorder>
-   <zorder>frame_function_bar</zorder>
-   <zorder>frame_mask_list</zorder>
-   <zorder>frame_display</zorder>
   </widget>
  </widget>
  <resources/>

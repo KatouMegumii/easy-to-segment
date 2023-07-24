@@ -21,7 +21,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.image_viewer = None
+        self.image_path = None
         self.offset = None
         self.draggable = None
         self.zoom_in_times = 0
@@ -32,9 +32,12 @@ class MainWindow(QMainWindow):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
+        self.ui.image_viewer = ImageViewer(self.ui.frame_main)
+
+        self.ui.image_viewer.setGeometry(50, 50, 750, 500)
+        self.ui.image_viewer.setStyleSheet("border-radius: 0px; background-color: rgba(200,200,200,200);")
+
         self.ui.button_import.clicked.connect(self.load_image_viewer)
-        self.image_viewer = ImageViewer()
-        self.ui.image_viewer.scene = QGraphicsScene()
 
         self.ui.button_close.clicked.connect(self.close)
         self.ui.button_minimize.clicked.connect(self.showMinimized)
@@ -42,7 +45,8 @@ class MainWindow(QMainWindow):
         self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
 
         self.ui.mode_button_group.buttonClicked.connect(self.group_button_click)
-        self.ui.mode_button_group.buttonClicked.connect(self.if_view_mode_activated)
+        self.ui.mode_button_group.buttonClicked.connect(self.view_mode_check)
+
         self.ui.mode_button_group.buttonPressed.connect(self.group_button_press)
 
     def group_button_click(self, button):
@@ -71,58 +75,27 @@ class MainWindow(QMainWindow):
         elif button == self.ui.button_view_mode:
             button.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
 
+    def import_image(self):
+        file_dialog = QFileDialog(self)
+        file_dialog.setWindowTitle("Select Image File")
+        file_dialog.setNameFilter("Image Files (*.png *.jpg *.bmp)")
+        if file_dialog.exec_():
+            self.image_path = file_dialog.selectedFiles()[0]
+            return self.image_path
+
     def load_image_viewer(self):
-        self.image_viewer.import_image()
-        self.image_viewer.set_image(self.image_viewer.image_path)
-        self.ui.image_viewer.scene.clear()
-        self.ui.image_viewer.setScene(self.image_viewer.scene)
-        self.image_viewer_style()
+        self.ui.image_viewer.set_image(self.import_image())
+        self.ui.image_viewer.set_scene()
+        self.view_mode_check()
 
-    def image_viewer_style(self):
-        self.ui.image_viewer.setSceneRect(QRectF(self.image_viewer.pixmap.rect()))
-        self.ui.image_viewer.fitInView(self.image_viewer.pixmap_item, Qt.KeepAspectRatio)
-
-        self.ui.image_viewer.setDragMode(QGraphicsView.ScrollHandDrag)
-
-        self.ui.image_viewer.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.ui.image_viewer.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-
-        self.ui.image_viewer.setTransformationAnchor(QGraphicsView.AnchorViewCenter)
-
-    def if_view_mode_activated(self):
-        if self.ui.button_view_mode.isChecked() and self.image_viewer.image_path is not None:
-            self.ui.image_viewer.setDragMode(QGraphicsView.ScrollHandDrag)
-        else:
-            self.ui.image_viewer.setDragMode(QGraphicsView.NoDrag)
-
-    def zoom_in(self):
-        self.ui.image_viewer.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
-        self.zoom_in_times += 1
-        self.ui.image_viewer.scale(1.1, 1.1)
-        self.ui.image_viewer.setTransformationAnchor(QGraphicsView.AnchorViewCenter)
-
-    def zoom_out(self):
-        pw = self.ui.image_viewer.width()
-        ph = self.ui.image_viewer.height()
-
-        w = pw * 1.1 ** self.zoom_in_times
-        h = ph * 1.1 ** self.zoom_in_times
-
-        if w > pw or h > ph:
-            self.ui.image_viewer.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
-            self.ui.image_viewer.scale(1/1.1, 1/1.1)
-            self.zoom_in_times -= 1
-            self.ui.image_viewer.setTransformationAnchor(QGraphicsView.AnchorViewCenter)
-
-    def wheelEvent(self, event: QWheelEvent):
-        delta = event.angleDelta().y()
+    def view_mode_check(self):
         if self.ui.button_view_mode.isChecked():
-            if delta > 0:
-                self.zoom_in()
-            else:
-                self.zoom_out()
+            self.ui.image_viewer.is_wheel_enable = True
         else:
-            pass
+            self.ui.image_viewer.is_wheel_enable = False
+
+        self.ui.image_viewer.set_drag_mode_enable()
+        self.ui.image_viewer.set_point_mode_enable()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -143,21 +116,15 @@ class ImageViewer(QGraphicsView):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
 
-        self.image_path = None
         self.q_image = None
         self.pixmap = None
         self.pixmap_item = None
 
-        self.scene = QGraphicsScene()
-        self.setScene(self.scene)
+        self.zoom_in_times = 0
+        self.is_wheel_enable = False
+        self.is_point_pos_enable = False
 
-    def import_image(self):
-        file_dialog = QFileDialog(self)
-        file_dialog.setWindowTitle("Select Image File")
-        file_dialog.setNameFilter("Image Files (*.png *.jpg *.bmp)")
-        if file_dialog.exec_():
-            self.image_path = file_dialog.selectedFiles()[0]
-            return self.image_path
+        self.scene = QGraphicsScene()
 
     def set_image(self, image_path):
         self.resetTransform()
@@ -170,11 +137,63 @@ class ImageViewer(QGraphicsView):
         self.pixmap = QPixmap.fromImage(self.q_image)
         self.pixmap_item = QGraphicsPixmapItem(self.pixmap)
 
-        self.pixmap_item.setTransformationMode(Qt.SmoothTransformation)
-        self.setRenderHints(QPainter.Antialiasing | QPainter.SmoothPixmapTransform)
-
+    def set_scene(self):
         self.scene.clear()
+
+        self.scene.setSceneRect(QRectF(self.pixmap.rect()))
+        self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
+
         self.scene.addItem(self.pixmap_item)
+        self.setScene(self.scene)
+
+        self.fitInView(self.pixmap_item, Qt.KeepAspectRatio)
+
+    def set_drag_mode_enable(self):
+        if self.is_wheel_enable:
+            self.setDragMode(QGraphicsView.ScrollHandDrag)
+        else:
+            self.setDragMode(QGraphicsView.NoDrag)
+
+    def set_point_mode_enable(self):
+        if self.is_wheel_enable and self.pixmap_item is not None:
+            self.is_point_pos_enable = False
+        else:
+            self.is_point_pos_enable = True
+
+    def zoom_in(self):
+        self.zoom_in_times += 1
+        self.scale(1.1, 1.1)
+
+    def zoom_out(self):
+        pw = self.width()
+        ph = self.height()
+
+        w = pw * 1.1 ** self.zoom_in_times
+        h = ph * 1.1 ** self.zoom_in_times
+
+        if w > pw or h > ph:
+            self.scale(1/1.1, 1/1.1)
+            self.zoom_in_times -= 1
+
+    def wheelEvent(self, event: QWheelEvent):
+        delta = event.angleDelta().y()
+        if self.is_wheel_enable:
+            if delta > 0:
+                self.zoom_in()
+            else:
+                self.zoom_out()
+
+    def mousePressEvent(self, event):
+        super().mousePressEvent(event)
+
+        if self.is_point_pos_enable:
+            if event.button() == Qt.LeftButton:
+                view_pos = event.pos()
+                scene_pos = self.mapToScene(view_pos)
+                point_pos = np.array([scene_pos.x(), scene_pos.y()])
+                print(point_pos)
 
 
 if __name__ == '__main__':
