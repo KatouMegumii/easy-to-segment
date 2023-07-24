@@ -1,11 +1,16 @@
+from PySide6.QtCore import Qt, QRectF
+from PySide6.QtGui import QIcon, QImage, QPixmap, QWheelEvent
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, QGraphicsPixmapItem
+
 import cv2
 import numpy as np
-from PySide6.QtCore import Qt, QRectF
-from PySide6.QtGui import QIcon, QImage, QPixmap, QPainter, QWheelEvent
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, QGraphicsPixmapItem
 from segment_anything import sam_model_registry, SamPredictor
 
 from Resources.main_structure import Ui_Form
+
+import ctypes
+
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("easy-to-segment")
 
 sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
 model_type = "vit_h"
@@ -28,14 +33,15 @@ class MainWindow(QMainWindow):
 
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setWindowIcon(QIcon('../easy-to-segment/UI icon/logo.png'))
 
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
         self.ui.image_viewer = ImageViewer(self.ui.frame_main)
 
-        self.ui.image_viewer.setGeometry(50, 50, 750, 500)
-        self.ui.image_viewer.setStyleSheet("border-radius: 0px;")
+        self.ui.image_viewer.setGeometry(50, 40, 750, 510)
+        self.ui.image_viewer.setStyleSheet("border-radius: 0px; background-color: rgb(230, 230, 230);")
 
         self.ui.button_import.clicked.connect(self.load_image_viewer)
 
@@ -154,7 +160,7 @@ class ImageViewer(QGraphicsView):
         self.fitInView(self.pixmap_item, Qt.KeepAspectRatio)
 
     def set_drag_mode_enable(self):
-        if self.is_wheel_enable:
+        if self.is_wheel_enable and self.pixmap_item is not None:
             self.setDragMode(QGraphicsView.ScrollHandDrag)
         else:
             self.setDragMode(QGraphicsView.NoDrag)
@@ -207,8 +213,10 @@ class ImageViewer(QGraphicsView):
                 self.scene_pos = self.mapToScene(view_pos)
                 if self.is_point_pos_valid():
                     self.point_pos = np.array([self.scene_pos.x(), self.scene_pos.y()])
+                    print(self.point_pos)
                 else:
                     self.point_pos = None
+                    print("Invalid Pos")
 
 
 if __name__ == '__main__':
