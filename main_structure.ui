@@ -246,7 +246,7 @@ QPushButton:pressed{
       </size>
      </property>
     </widget>
-    <widget class="QLabel" name="icon">
+    <widget class="QPushButton" name="logo">
      <property name="geometry">
       <rect>
        <x>12</x>
@@ -255,20 +255,25 @@ QPushButton:pressed{
        <height>28</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">image: url(D:/Python Coding/easy-to-segment/UI icon/logo.png);
-boarder-radius:4px;
-background:transparent;</string>
-     </property>
      <property name="text">
       <string/>
      </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>UI icon/logo.png</normaloff>UI icon/logo.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>28</width>
+       <height>28</height>
+      </size>
+     </property>
     </widget>
-    <zorder>icon</zorder>
     <zorder>cbox_mode</zorder>
     <zorder>frame_top_border</zorder>
     <zorder>button_minimize</zorder>
     <zorder>button_close</zorder>
+    <zorder>logo</zorder>
    </widget>
    <widget class="QFrame" name="frame_function_bar">
     <property name="geometry">
@@ -342,7 +347,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color: rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);
+icon: url('UI icon/settings-white.svg');
 }
 </string>
       </property>
@@ -392,7 +397,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color:  rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/save-white.svg);
+icon: url('UI icon/save-white.svg');
 }</string>
       </property>
       <property name="text">
@@ -437,7 +442,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color: rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/import-white.svg);
+icon: url('UI icon/import-white.svg');
 }
 </string>
       </property>
@@ -749,7 +754,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color:  rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/square-add-white.svg);
+icon: url('UI icon/square-add-white.svg');
 }
 </string>
       </property>
@@ -799,7 +804,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color:  rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/generate-mask-white.svg);
+icon: url('UI icon/generate-mask-white.svg');
 }</string>
       </property>
       <property name="text">
@@ -848,7 +853,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color:  rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/magic-white.svg);
+icon: url('UI icon/magic-white.svg');
 }</string>
       </property>
       <property name="text">
@@ -929,7 +934,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color:  rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/undo-white.svg);
+icon: url('UI icon/undo-white.svg');
 }</string>
       </property>
       <property name="text">
@@ -971,7 +976,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color:  rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/redo-white.svg);
+icon: url('UI icon/redo-white.svg');
 }</string>
       </property>
       <property name="text">
@@ -1013,7 +1018,7 @@ background-color: rgba(80,80,80,50);
 QPushButton:pressed{
 border: transparent;
 background-color:  rgb(40,40,40);
-icon: url(D:/Python Coding/easy-to-segment/UI icon/reset-white.svg);
+icon: url('UI icon/reset-white.svg');
 }</string>
       </property>
       <property name="text">

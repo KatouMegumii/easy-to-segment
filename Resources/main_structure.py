@@ -16,8 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QButtonGroup, QComboBox, QFrame,
-    QLabel, QPushButton, QSizePolicy, QToolButton,
-    QWidget)
+    QPushButton, QSizePolicy, QToolButton, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -127,9 +126,9 @@ class Ui_Form(object):
 "	background-color: rgba(20, 20, 20, 100);\n"
 "}\n"
 "")
-        icon1 = QIcon()
-        icon1.addFile(u"UI icon/minimize.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_minimize.setIcon(icon1)
+        icon = QIcon()
+        icon.addFile(u"UI icon/minimize.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_minimize.setIcon(icon)
         self.button_minimize.setIconSize(QSize(18, 18))
         self.button_close = QPushButton(self.frame_top_bar)
         self.button_close.setObjectName(u"button_close")
@@ -150,21 +149,22 @@ class Ui_Form(object):
 "	background-color: rgba(20, 20, 20, 100);\n"
 "}\n"
 "")
-        icon2 = QIcon()
-        icon2.addFile(u"UI icon/close.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.button_close.setIcon(icon2)
+        icon1 = QIcon()
+        icon1.addFile(u"UI icon/close.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.button_close.setIcon(icon1)
         self.button_close.setIconSize(QSize(18, 18))
-        self.icon = QLabel(self.frame_top_bar)
-        self.icon.setObjectName(u"icon")
-        self.icon.setGeometry(QRect(12, 6, 28, 28))
-        self.icon.setStyleSheet(u"image: url(D:/Python Coding/easy-to-segment/UI icon/logo.png);\n"
-"boarder-radius:4px;\n"
-"background:transparent;")
-        self.icon.raise_()
+        self.logo = QPushButton(self.frame_top_bar)
+        self.logo.setObjectName(u"logo")
+        self.logo.setGeometry(QRect(12, 6, 28, 28))
+        icon2 = QIcon()
+        icon2.addFile(u"UI icon/logo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.logo.setIcon(icon2)
+        self.logo.setIconSize(QSize(28, 28))
         self.cbox_mode.raise_()
         self.frame_top_border.raise_()
         self.button_minimize.raise_()
         self.button_close.raise_()
+        self.logo.raise_()
         self.frame_function_bar = QFrame(self.frame_main)
         self.frame_function_bar.setObjectName(u"frame_function_bar")
         self.frame_function_bar.setGeometry(QRect(0, 40, 50, 560))
@@ -204,7 +204,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color: rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/settings-white.svg);\n"
+"icon: url('UI icon/settings-white.svg');\n"
 "}\n"
 "")
         icon3 = QIcon()
@@ -230,7 +230,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color:  rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/save-white.svg);\n"
+"icon: url('UI icon/save-white.svg');\n"
 "}")
         icon4 = QIcon()
         icon4.addFile(u"UI icon/save.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -255,7 +255,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color: rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/import-white.svg);\n"
+"icon: url('UI icon/import-white.svg');\n"
 "}\n"
 "")
         icon5 = QIcon()
@@ -429,7 +429,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color:  rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/square-add-white.svg);\n"
+"icon: url('UI icon/square-add-white.svg');\n"
 "}\n"
 "")
         icon9 = QIcon()
@@ -455,7 +455,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color:  rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/generate-mask-white.svg);\n"
+"icon: url('UI icon/generate-mask-white.svg');\n"
 "}")
         icon10 = QIcon()
         icon10.addFile(u"UI icon/generate-mask.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -480,7 +480,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color:  rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/magic-white.svg);\n"
+"icon: url('UI icon/magic-white.svg');\n"
 "}")
         icon11 = QIcon()
         icon11.addFile(u"UI icon/magic.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -517,7 +517,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color:  rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/undo-white.svg);\n"
+"icon: url('UI icon/undo-white.svg');\n"
 "}")
         icon12 = QIcon()
         icon12.addFile(u"UI icon/undo.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -541,7 +541,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color:  rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/redo-white.svg);\n"
+"icon: url('UI icon/redo-white.svg');\n"
 "}")
         icon13 = QIcon()
         icon13.addFile(u"UI icon/redo.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -565,7 +565,7 @@ class Ui_Form(object):
 "QPushButton:pressed{\n"
 "border: transparent;\n"
 "background-color:  rgb(40,40,40);\n"
-"icon: url(D:/Python Coding/easy-to-segment/UI icon/reset-white.svg);\n"
+"icon: url('UI icon/reset-white.svg');\n"
 "}")
         icon14 = QIcon()
         icon14.addFile(u"UI icon/reset.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -612,7 +612,7 @@ class Ui_Form(object):
 
         self.button_minimize.setText("")
         self.button_close.setText("")
-        self.icon.setText("")
+        self.logo.setText("")
         self.button_settings.setText("")
         self.button_save.setText("")
         self.button_import.setText("")

@@ -3,7 +3,7 @@ import ctypes
 import cv2
 import numpy as np
 from PySide6.QtCore import Qt, QRectF
-from PySide6.QtGui import QIcon, QImage, QPixmap, QWheelEvent
+from PySide6.QtGui import QIcon, QPixmap, QWheelEvent
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, QGraphicsPixmapItem
 from matplotlib import pyplot as plt
 from segment_anything import sam_model_registry, SamPredictor
@@ -45,7 +45,7 @@ class MainWindow(QMainWindow):
 
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
-        self.setWindowIcon(QIcon('../easy-to-segment/UI icon/logo.png'))
+        self.setWindowIcon(QIcon('UI icon/logo.png'))
 
         self.ui = Ui_Form()
         self.ui.setupUi(self)
@@ -60,7 +60,7 @@ class MainWindow(QMainWindow):
         self.ui.button_close.clicked.connect(self.close)
         self.ui.button_minimize.clicked.connect(self.showMinimized)
 
-        self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
+        self.ui.button_view_mode.setIcon(QIcon('UI icon/view-white.svg'))
 
         self.ui.mode_button_group.buttonClicked.connect(self.group_button_click)
         self.ui.mode_button_group.buttonClicked.connect(self.view_mode_check)
@@ -69,29 +69,29 @@ class MainWindow(QMainWindow):
 
     def group_button_click(self, button):
         if button == self.ui.button_point_mode:
-            button.setIcon(QIcon('../easy-to-segment/UI icon/point-white.svg'))
-            self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view.svg'))
-            self.ui.button_box_mode.setIcon(QIcon('../easy-to-segment/UI icon/box.svg'))
+            button.setIcon(QIcon('UI icon/point-white.svg'))
+            self.ui.button_view_mode.setIcon(QIcon('UI icon/view.svg'))
+            self.ui.button_box_mode.setIcon(QIcon('UI icon/box.svg'))
 
         elif button == self.ui.button_box_mode:
-            button.setIcon(QIcon('../easy-to-segment/UI icon/box-white.svg'))
-            self.ui.button_point_mode.setIcon(QIcon('../easy-to-segment/UI icon/point.svg'))
-            self.ui.button_view_mode.setIcon(QIcon('../easy-to-segment/UI icon/view.svg'))
+            button.setIcon(QIcon('UI icon/box-white.svg'))
+            self.ui.button_point_mode.setIcon(QIcon('UI icon/point.svg'))
+            self.ui.button_view_mode.setIcon(QIcon('UI icon/view.svg'))
 
         elif button == self.ui.button_view_mode:
-            button.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
-            self.ui.button_point_mode.setIcon(QIcon('../easy-to-segment/UI icon/point.svg'))
-            self.ui.button_box_mode.setIcon(QIcon('../easy-to-segment/UI icon/box.svg'))
+            button.setIcon(QIcon('UI icon/view-white.svg'))
+            self.ui.button_point_mode.setIcon(QIcon('UI icon/point.svg'))
+            self.ui.button_box_mode.setIcon(QIcon('UI icon/box.svg'))
 
     def group_button_press(self, button):
         if button == self.ui.button_point_mode:
-            button.setIcon(QIcon('../easy-to-segment/UI icon/point-white.svg'))
+            button.setIcon(QIcon('UI icon/point-white.svg'))
 
         elif button == self.ui.button_box_mode:
-            button.setIcon(QIcon('../easy-to-segment/UI icon/box-white.svg'))
+            button.setIcon(QIcon('UI icon/box-white.svg'))
 
         elif button == self.ui.button_view_mode:
-            button.setIcon(QIcon('../easy-to-segment/UI icon/view-white.svg'))
+            button.setIcon(QIcon('UI icon/view-white.svg'))
 
     def import_image(self):
         file_dialog = QFileDialog(self)
