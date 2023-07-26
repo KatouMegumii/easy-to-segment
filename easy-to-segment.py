@@ -34,7 +34,18 @@ def show_box(box, ax):
     ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor='green', facecolor=(0, 0, 0, 0), lw=2))
 
 
-def segment(image_path, input_point, input_label):
+def register_model():
+    sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
+    model_type = "vit_h"
+    device = "cuda"
+
+    sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
+    sam.to(device=device)
+    predictor = SamPredictor(sam)
+    return predictor
+
+
+def segment(predictor, image_path, input_point, input_label):
     if image_path is not None and input_point is not None:
         image = cv2.imread(image_path)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -69,6 +80,8 @@ class MainWindow(QMainWindow):
 
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+
+        self.model = register_model()
 
         self.ui.image_viewer = ImageViewer(self.ui.frame_main)
 
@@ -141,7 +154,7 @@ class MainWindow(QMainWindow):
         image_path = self.image_path
         input_point = self.ui.image_viewer.point_pos
         input_label = self.ui.image_viewer.point_type
-        segment(image_path, input_point, input_label)
+        segment(self.model, image_path, input_point, input_label)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -258,15 +271,6 @@ class ImageViewer(QGraphicsView):
 
 if __name__ == '__main__':
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("easy-to-segment")
-
-    sam_checkpoint = "D:/Python Coding/segment-model/sam_vit_h_4b8939.pth"
-    model_type = "vit_h"
-
-    device = "cuda"
-
-    sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
-    sam.to(device=device)
-    predictor = SamPredictor(sam)
 
     app = QApplication([])
     window = MainWindow()
