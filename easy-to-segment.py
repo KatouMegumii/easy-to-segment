@@ -140,7 +140,7 @@ class MainWindow(QMainWindow):
     def generate_mask(self):
         image_path = self.image_path
         input_point = self.ui.image_viewer.point_pos
-        input_label = self.ui.image_viewer.segment_type
+        input_label = self.ui.image_viewer.point_type
         segment(image_path, input_point, input_label)
 
     def mousePressEvent(self, event):
@@ -164,7 +164,7 @@ class ImageViewer(QGraphicsView):
 
         self.scene_pos = None
         self.point_pos = None
-        self.segment_type = None
+        self.point_type = None
 
         self.pixmap = None
         self.pixmap_item = None
@@ -251,10 +251,9 @@ class ImageViewer(QGraphicsView):
                 self.point_pos = None
 
             if event.button() == Qt.LeftButton:
-                self.segment_type = np.array([1])
+                self.point_type = np.array([1])
             elif event.button() == Qt.RightButton:
-                self.segment_type = np.array([0])
-
+                self.point_type = np.array([0])
 
 
 if __name__ == '__main__':
