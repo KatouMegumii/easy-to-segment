@@ -34,11 +34,31 @@ def show_box(box, ax):
     ax.add_patch(plt.Rectangle((x0, y0), w, h, edgecolor='green', facecolor=(0, 0, 0, 0), lw=2))
 
 
+def segment(image_path, input_point, input_label):
+    if image_path is not None and input_point is not None:
+        image = cv2.imread(image_path)
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        predictor.set_image(image)
+
+        masks, _, _ = predictor.predict(
+            point_coords=input_point,
+            point_labels=input_label,
+            multimask_output=False,
+        )
+
+        plt.imshow(image)
+        show_mask(masks, plt.gca())
+        show_points(input_point, input_label, plt.gca())
+        plt.axis('off')
+        plt.show()
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
         self.image_path = None
+        self.segment_type = None
         self.offset = None
         self.draggable = None
         self.zoom_in_times = 0
@@ -59,6 +79,8 @@ class MainWindow(QMainWindow):
 
         self.ui.button_close.clicked.connect(self.close)
         self.ui.button_minimize.clicked.connect(self.showMinimized)
+
+        self.button_generate_segment = self.ui.button_generate_mask.clicked.connect(self.generate_mask)
 
         self.ui.button_view_mode.setIcon(QIcon('UI icon/view-white.svg'))
 
@@ -115,6 +137,12 @@ class MainWindow(QMainWindow):
         self.ui.image_viewer.set_drag_mode_enable()
         self.ui.image_viewer.set_point_mode_enable()
 
+    def generate_mask(self):
+        image_path = self.image_path
+        input_point = self.ui.image_viewer.point_pos
+        input_label = self.ui.image_viewer.segment_type
+        segment(image_path, input_point, input_label)
+
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.draggable = True
@@ -134,8 +162,10 @@ class ImageViewer(QGraphicsView):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
 
-        self.point_pos = None
         self.scene_pos = None
+        self.point_pos = None
+        self.segment_type = None
+
         self.pixmap = None
         self.pixmap_item = None
 
@@ -213,13 +243,18 @@ class ImageViewer(QGraphicsView):
         super().mousePressEvent(event)
 
         if self.is_point_pos_enable:
+            view_pos = event.pos()
+            self.scene_pos = self.mapToScene(view_pos)
+            if self.is_point_pos_valid():
+                self.point_pos = np.array([[self.scene_pos.x(), self.scene_pos.y()]])
+            else:
+                self.point_pos = None
+
             if event.button() == Qt.LeftButton:
-                view_pos = event.pos()
-                self.scene_pos = self.mapToScene(view_pos)
-                if self.is_point_pos_valid():
-                    self.point_pos = np.array([[self.scene_pos.x(), self.scene_pos.y()]])
-                else:
-                    self.point_pos = None
+                self.segment_type = np.array([1])
+            elif event.button() == Qt.RightButton:
+                self.segment_type = np.array([0])
+
 
 
 if __name__ == '__main__':
@@ -237,31 +272,6 @@ if __name__ == '__main__':
     app = QApplication([])
     window = MainWindow()
     window.show()
-
-    def segment(input_point, input_label):
-        if window.image_path is not None and input_point is not None:
-            image = cv2.imread(window.image_path)
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-            predictor.set_image(image)
-
-            masks, _, _ = predictor.predict(
-                point_coords=input_point,
-                point_labels=input_label,
-                multimask_output=False,
-            )
-
-            plt.imshow(image)
-            show_mask(masks, plt.gca())
-            show_points(input_point, input_label, plt.gca())
-            plt.axis('off')
-            plt.show()
-
-    def check():
-        input_point = window.ui.image_viewer.point_pos
-        input_label = np.array([1])
-        segment(input_point, input_label)
-
-    window.ui.button_generate_mask.clicked.connect(check)
 
     app.exec()
 
