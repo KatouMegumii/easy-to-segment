@@ -3,9 +3,11 @@ import ctypes
 import cv2
 import numpy as np
 from PySide6.QtCore import Qt, QRectF
-from PySide6.QtGui import QIcon, QPixmap, QWheelEvent
-from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, QGraphicsPixmapItem
+from PySide6.QtGui import QIcon, QPixmap, QWheelEvent, QImage, QBrush, QPen
+from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QGraphicsScene, QGraphicsView, \
+    QGraphicsPixmapItem, QWidget, QGraphicsEllipseItem
 from matplotlib import pyplot as plt
+from matplotlib.backends.backend_template import FigureCanvas
 from segment_anything import sam_model_registry, SamPredictor
 
 from Resources.main_structure import Ui_Form
@@ -18,7 +20,8 @@ def show_mask(mask, ax, random_color=False):
         color = np.array([30 / 255, 144 / 255, 255 / 255, 0.6])
     h, w = mask.shape[-2:]
     mask_image = mask.reshape(h, w, 1) * color.reshape(1, 1, -1)
-    ax.imshow(mask_image)
+    mask_image = (mask_image * 255).astype(np.uint8)
+    return mask_image
 
 
 def show_points(coords, labels, ax, marker_size=375):
@@ -56,12 +59,9 @@ def segment(predictor, image_path, input_point, input_label):
             point_labels=input_label,
             multimask_output=False,
         )
+        mask_image = show_mask(masks, plt.gca())
+        return mask_image
 
-        plt.imshow(image)
-        show_mask(masks, plt.gca())
-        show_points(input_point, input_label, plt.gca())
-        plt.axis('off')
-        plt.show()
 
 
 class MainWindow(QMainWindow):
@@ -93,7 +93,8 @@ class MainWindow(QMainWindow):
         self.ui.button_close.clicked.connect(self.close)
         self.ui.button_minimize.clicked.connect(self.showMinimized)
 
-        self.button_generate_segment = self.ui.button_generate_mask.clicked.connect(self.generate_mask)
+        self.ui.button_generate_mask.clicked.connect(self.generate_mask)
+        self.ui.button_reset.clicked.connect(self.reset_mask)
 
         self.ui.button_view_mode.setIcon(QIcon('UI icon/view-white.svg'))
 
@@ -154,7 +155,18 @@ class MainWindow(QMainWindow):
         image_path = self.image_path
         input_point = self.ui.image_viewer.point_pos
         input_label = self.ui.image_viewer.point_type
-        segment(self.model, image_path, input_point, input_label)
+
+        mask_image = segment(self.model, image_path, input_point, input_label)
+        q_image = QImage(mask_image.data, mask_image.shape[1], mask_image.shape[0], QImage.Format_RGBA8888)
+        pixmap = QPixmap.fromImage(q_image)
+        pix_item = QGraphicsPixmapItem(pixmap)
+        self.ui.image_viewer.scene.addItem(pix_item)
+
+    def reset_mask(self):
+        self.ui.image_viewer.scene.clear()
+
+        self.ui.image_viewer.set_image(self.image_path)
+        self.ui.image_viewer.set_scene()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -256,17 +268,33 @@ class ImageViewer(QGraphicsView):
         super().mousePressEvent(event)
 
         if self.is_point_pos_enable:
+
             view_pos = event.pos()
             self.scene_pos = self.mapToScene(view_pos)
+            x, y = self.scene_pos.x(), self.scene_pos.y()
+
             if self.is_point_pos_valid():
+
                 self.point_pos = np.array([[self.scene_pos.x(), self.scene_pos.y()]])
+
+                if event.button() == Qt.LeftButton:
+                    self.point_type = np.array([1])
+                    color = Qt.green
+                elif event.button() == Qt.RightButton:
+                    self.point_type = np.array([0])
+                    color = Qt.red
+
+                point_item = QGraphicsEllipseItem(x-25, y-25, 50, 50)
+                point_item.setBrush(color)
+                self.scene.addItem(point_item)
+
             else:
                 self.point_pos = None
 
-            if event.button() == Qt.LeftButton:
-                self.point_type = np.array([1])
-            elif event.button() == Qt.RightButton:
-                self.point_type = np.array([0])
+
+
+
+
 
 
 if __name__ == '__main__':
