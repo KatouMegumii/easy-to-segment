@@ -273,6 +273,8 @@ class ImageViewer(QGraphicsView):
             self.scene_pos = self.mapToScene(view_pos)
             x, y = self.scene_pos.x(), self.scene_pos.y()
 
+            h = self.pixmap_item.pixmap().height()/50
+
             if self.is_point_pos_valid():
 
                 self.point_pos = np.array([[self.scene_pos.x(), self.scene_pos.y()]])
@@ -284,7 +286,7 @@ class ImageViewer(QGraphicsView):
                     self.point_type = np.array([0])
                     color = Qt.red
 
-                point_item = QGraphicsEllipseItem(x-25, y-25, 50, 50)
+                point_item = QGraphicsEllipseItem(x-(h/2), y-(h/2), h, h)
                 point_item.setBrush(color)
                 self.scene.addItem(point_item)
 
