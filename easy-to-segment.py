@@ -294,11 +294,6 @@ class ImageViewer(QGraphicsView):
                 self.point_pos = None
 
 
-
-
-
-
-
 if __name__ == '__main__':
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("easy-to-segment")
 
