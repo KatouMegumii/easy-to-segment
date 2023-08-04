@@ -63,7 +63,6 @@ def segment(predictor, image_path, input_point, input_label):
         return mask_image
 
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
